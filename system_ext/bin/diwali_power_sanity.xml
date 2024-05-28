@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!--
+ Copyright (c) 2021-2022 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<!--120 fps panel name=nt36672e lcd video mode dsi novatek panel with DSC -->
+<!--144 fps panel name=r66451 amoled cmd mode dsi visionox panel with DSC -->
+<PowerSanitySettings>
+    <TestCasesList>
+        <TestCase name="camera_autofocus">
+            <PanelConfig
+              width="1080" height="2408" fps="120" clock="384043808" bandwidth="2085400"/>
+            <PanelConfig
+              width="1080" height="2340" fps="144" clock="418344608" bandwidth="2591304"/>
+        </TestCase>
+        <TestCase name="google_photos">
+            <PanelConfig
+              width="1080" height="2408" fps="120" clock="384043808" bandwidth="2085400"/>
+            <PanelConfig
+              width="1080" height="2340" fps="144" clock="418344608" bandwidth="2591304"/>
+        </TestCase>
+        <TestCase name="home_screen_notch">
+            <PanelConfig
+              width="1080" height="2408" fps="120" clock="384043808" bandwidth="3128101"/>
+            <PanelConfig
+              width="1080" height="2340" fps="144" clock="418344608" bandwidth="3886956"/>
+        </TestCase>
+        <TestCase name="messenger_editing">
+            <PanelConfig
+              width="1080" height="2408" fps="120" clock="384043808" bandwidth="3128101"/>
+            <PanelConfig
+              width="1080" height="2340" fps="144" clock="418344608" bandwidth="3886956"/>
+        </TestCase>
+        <TestCase name="video_landscape">
+            <PanelConfig
+              width="1080" height="2408" fps="120" clock="384043808" bandwidth="1354223"/>
+            <PanelConfig
+              width="1080" height="2340" fps="144" clock="418344608" bandwidth="1682748"/>
+        </TestCase>
+        <TestCase name="video_portrait">
+            <PanelConfig
+              width="1080" height="2408" fps="120" clock="384043808" bandwidth="2082512"/>
+            <PanelConfig
+              width="1080" height="2340" fps="144" clock="418344608" bandwidth="2587715"/>
+        </TestCase>
+        <TestCase name="whatsapp_call_search_option">
+            <PanelConfig
+              width="1080" height="2408" fps="120" clock="384043808" bandwidth="3128101"/>
+            <PanelConfig
+              width="1080" height="2340" fps="144" clock="418344608" bandwidth="3886956"/>
+        </TestCase>
+        <TestCase name="whatsapp_video_calling">
+            <PanelConfig
+               width="1080" height="2408" fps="120" clock="384043808" bandwidth="3023831"/>
+            <PanelConfig
+              width="1080" height="2340" fps="144" clock="418344608" bandwidth="3109566"/>
+        </TestCase>
+        <TestCase name="whatsapp_video_homescreen">
+            <PanelConfig
+               width="1080" height="2408" fps="120" clock="384043808" bandwidth="2502481"/>
+            <PanelConfig
+              width="1080" height="2340" fps="144" clock="418344608" bandwidth="3757392"/>
+        </TestCase>
+        <TestCase name="youtube_in_chrome">
+            <PanelConfig
+               width="1080" height="2408" fps="120" clock="384043808" bandwidth="2085400"/>
+            <PanelConfig
+              width="1080" height="2340" fps="144" clock="418344608" bandwidth="2591304"/>
+        </TestCase>
+    </TestCasesList>
+</PowerSanitySettings>

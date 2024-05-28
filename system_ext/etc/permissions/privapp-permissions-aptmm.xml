@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This XML file declares which signature|privileged permissions should be
+granted to privileged applications on QTI devices.
+It allows additional grants on top of privapp-permissions-platform.xml
+-->
+
+<permissions>
+    <privapp-permissions package="com.qualcomm.aptmm_mediaplayer">
+        <versionID>"2.2.0"</versionID>
+        <permission name="android.permission.BLUETOOTH_PRIVILEGED"/>
+        <permission name="android.permission.MODIFY_PHONE_STATE"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmmmediarecorder">
+        <versionID>"2.2.0"</versionID>
+        <permission name="android.permission.MODIFY_AUDIO_ROUTING"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmm_audioeffectrecord">
+        <versionID>"2.2.0"</versionID>
+        <permission name="android.permission.CAPTURE_AUDIO_OUTPUT"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmmaudiotrack">
+        <versionID>"2.1.0"</versionID>
+        <permission name="android.permission.BLUETOOTH_PRIVILEGED"/>
+        <permission name="android.permission.MODIFY_AUDIO_ROUTING"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.android.aptmmconcurrency">
+        <versionID>"2.1.0"</versionID>
+        <permission name="android.permission.BLUETOOTH_PRIVILEGED"/>
+        <permission name="android.permission.MODIFY_AUDIO_ROUTING"/>
+        <permission name="android.permission.CALL_PHONE"/>
+        <permission name="android.permission.RECORD_AUDIO"/>
+        <permission name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+        <permission name="android.permission.WAKE_LOCK"/>
+        <permission name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+        <permission name="android.permission.DISABLE_KEYGUARD"/>
+        <permission name="android.permission.CAPTURE_AUDIO_HOTWORD"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmm_soundtrigger3">
+        <versionID>"2.0.1"</versionID>
+        <permission name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+        <permission name="android.permission.RECORD_AUDIO"/>
+        <permission name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+        <permission name="android.permission.WAKE_LOCK"/>
+        <permission name="android.permission.CAPTURE_AUDIO_HOTWORD"/>
+        <permission name="android.permission.DISABLE_KEYGUARD"/>
+        <permission name="android.permission.MANAGE_SOUND_TRIGGER"/>
+        <permission name="android.permission.CONTROL_KEYGUARD"/>
+        <permission name="android.permission.RESTART_PACKAGES"/>
+        <permission name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmm_soundtrigger_legacy">
+        <versionID>"2.0.2"</versionID>
+        <permission name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+        <permission name="android.permission.RECORD_AUDIO"/>
+        <permission name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+        <permission name="android.permission.WAKE_LOCK"/>
+        <permission name="android.permission.CAPTURE_AUDIO_HOTWORD"/>
+        <permission name="android.permission.DISABLE_KEYGUARD"/>
+        <permission name="android.permission.MANAGE_SOUND_TRIGGER"/>
+        <permission name="android.permission.CONTROL_KEYGUARD"/>
+        <permission name="android.permission.RESTART_PACKAGES"/>
+        <permission name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmm_mast">
+        <permission name="android.permission.WRITE_SETTINGS"/>
+        <permission name="android.permission.RECORD_AUDIO"/>
+        <permission name="android.permission.DISABLE_HIDDEN_API_CHECKS"/>
+        <permission name="android.permission.CAMERA"/>
+        <permission name="android.permission.READ_LOGS"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmmaudioloopback">
+        <versionID>"2.1.0"</versionID>
+        <permission name="android.permission.RECORD_AUDIO"/>
+        <permission name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+        <permission name="android.permission.WAKE_LOCK"/>
+        <permission name="android.permission.MODIFY_AUDIO_ROUTING"/>
+        <permission name="android.permission.BLUETOOTH_PRIVILEGED"/>
+        <permission name="android.permission.BLUETOOTH_ADMIN"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmm_soundtrigger">
+        <versionID>"2.1.0"</versionID>
+        <permission name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+        <permission name="android.permission.RECORD_AUDIO"/>
+        <permission name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+        <permission name="android.permission.WAKE_LOCK"/>
+        <permission name="android.permission.CAPTURE_AUDIO_HOTWORD"/>
+        <permission name="android.permission.DISABLE_KEYGUARD"/>
+        <permission name="android.permission.MANAGE_SOUND_TRIGGER"/>
+        <permission name="android.permission.CONTROL_KEYGUARD"/>
+        <permission name="android.permission.RESTART_PACKAGES"/>
+        <permission name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmm_exoplayer">
+        <versionID>"2.2.0"</versionID>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmm_mediacodec">
+        <versionID>="2.2.4"</versionID>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmm_camcorder2">
+        <versionID>="2.2.0"</versionID>
+    </privapp-permissions>
+    <privapp-permissions package="com.qualcomm.aptmm_acd">
+        <versionID>="2.1.2"</versionID>
+        <permission name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+        <permission name="android.permission.RECORD_AUDIO"/>
+        <permission name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+        <permission name="android.permission.WAKE_LOCK"/>
+        <permission name="android.permission.CAPTURE_AUDIO_HOTWORD"/>
+        <permission name="android.permission.DISABLE_KEYGUARD"/>
+        <permission name="android.permission.MANAGE_SOUND_TRIGGER"/>
+        <permission name="android.permission.CONTROL_KEYGUARD"/>
+        <permission name="android.permission.RESTART_PACKAGES"/>
+        <permission name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    </privapp-permissions>
+</permissions>

@@ -1,0 +1,6 @@
+bootRE/boot.elf
+product/priv-app/Velvet/Velvet.apk
+product/priv-app/GmsCore/GmsCore.apk
+product/app/TrichromeLibrary64/TrichromeLibrary64.apk
+product/app/LTMTuning/LTMTuning.apk
+recovery.img

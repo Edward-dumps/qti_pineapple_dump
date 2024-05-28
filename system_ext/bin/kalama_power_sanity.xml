@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!--
+ Copyright (c) 2022 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<!--144 fps panel name=vtdr6130 amoled cmd mode dsi visionox panel with DSC -->
+<PowerSanitySettings>
+    <TestCasesList>
+        <TestCase name="camera_autofocus">
+            <PanelConfig width="1080" height="2400" fps="144" clock="212060160" bandwidth="2613321"/>
+        </TestCase>
+        <TestCase name="google_photos">
+            <PanelConfig width="1080" height="2400" fps="144" clock="212060160" bandwidth="2613321"/>
+        </TestCase>
+        <TestCase name="home_screen_notch">
+            <PanelConfig width="1080" height="2400" fps="144" clock="212060160" bandwidth="3919982"/>
+        </TestCase>
+        <TestCase name="messenger_editing">
+            <PanelConfig width="1080" height="2400" fps="144" clock="212060160" bandwidth="3919982"/>
+        </TestCase>
+        <TestCase name="video_landscape">
+            <PanelConfig width="1080" height="2400" fps="144" clock="212845568" bandwidth="1698658"/>
+        </TestCase>
+        <TestCase name="video_portrait">
+            <PanelConfig width="1080" height="2400" fps="144" clock="212060160" bandwidth="2613321"/>
+        </TestCase>
+        <TestCase name="whatsapp_call_search_option">
+            <PanelConfig width="1080" height="2400" fps="144" clock="212060160" bandwidth="3919982"/>
+        </TestCase>
+        <TestCase name="whatsapp_video_calling">
+            <PanelConfig width="1080" height="2400" fps="144" clock="212060160" bandwidth="3135985"/>
+        </TestCase>
+        <TestCase name="whatsapp_video_homescreen">
+            <PanelConfig width="1080" height="2400" fps="144" clock="212060160" bandwidth="3789316"/>
+        </TestCase>
+        <TestCase name="youtube_in_chrome">
+            <PanelConfig width="1080" height="2400" fps="144" clock="212060160" bandwidth="2613321"/>
+        </TestCase>
+    </TestCasesList>
+</PowerSanitySettings>

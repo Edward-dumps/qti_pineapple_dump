@@ -1,0 +1,85 @@
+service thales-spu-service /system_ext/bin/thales_spu_service@2.0
+    user system
+    group system
+
+on boot && property:ro.boot.product.vendor.sku=crow
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.boot.product.vendor.sku=taro
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=holi
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.boot.product.vendor.sku=diwali
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.boot.product.vendor.sku=cape
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.boot.product.vendor.sku=parrot
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.boot.product.vendor.sku=ukee
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.boot.product.vendor.sku=ravelin
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=lahaina
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=kona
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=lito
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=msmnile
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=lagoon
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=atoll
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=bengal
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=monaco
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=trinket
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=bitra
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=kamorta
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=MSMSTEPPE
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=talos
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=shima
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=yupik
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=msm8937
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.board.platform=sm6150
+setprop thalesgroup.iuicc.active_channels "none"
+
+on boot && property:ro.boot.product.vendor.sku=kalama
+    wait /data/misc
+    mkdir /data/misc/thales 0770 system system
+    mkdir /data/misc/thales/isim 0770 system system
+    wait_for_prop init.svc.spu_service running
+    start thales-spu-service

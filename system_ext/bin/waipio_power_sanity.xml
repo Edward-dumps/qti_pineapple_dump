@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!--
+ Copyright (c) 2021-22 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<!--120 fps panel name=r66451 amoled cmd mode dsi visionox panel with DSC -->
+<PowerSanitySettings>
+    <TestCasesList>
+        <TestCase name="camera_autofocus">
+            <PanelConfig width="1080" height="2340" fps="120" clock="172847824" bandwidth="2141358"/>
+        </TestCase>
+        <TestCase name="google_photos">
+            <PanelConfig width="1080" height="2340" fps="120" clock="172847824" bandwidth="2141358"/>
+        </TestCase>
+        <TestCase name="home_screen_notch">
+            <PanelConfig width="1080" height="2340" fps="120" clock="172847824" bandwidth="3212038"/>
+        </TestCase>
+        <TestCase name="messenger_editing">
+            <PanelConfig width="1080" height="2340" fps="120" clock="172847824" bandwidth="3212038"/>
+        </TestCase>
+        <TestCase name="video_landscape">
+            <PanelConfig width="1080" height="2340" fps="120" clock="173488000" bandwidth="2716750"/>
+        </TestCase>
+        <TestCase name="video_portrait">
+            <PanelConfig width="1080" height="2340" fps="120" clock="172847824" bandwidth="2387614"/>
+        </TestCase>
+        <TestCase name="whatsapp_call_search_option">
+            <PanelConfig width="1080" height="2340" fps="120" clock="172847824" bandwidth="3212038"/>
+        </TestCase>
+        <TestCase name="whatsapp_video_calling">
+            <PanelConfig width="1080" height="2340" fps="120" clock="172847824" bandwidth="2569630"/>
+        </TestCase>
+        <TestCase name="whatsapp_video_homescreen">
+            <PanelConfig width="1080" height="2340" fps="120" clock="172847824" bandwidth="3104970"/>
+        </TestCase>
+        <TestCase name="youtube_in_chrome">
+            <PanelConfig width="1080" height="2340" fps="120" clock="172847824" bandwidth="2141358"/>
+        </TestCase>
+    </TestCasesList>
+</PowerSanitySettings>

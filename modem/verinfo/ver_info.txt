@@ -1,0 +1,39 @@
+{
+    "Image_Build_IDs": {
+        "adsp": "LPAIDSP.HT.1.0-00873.1-LANAI-1",
+        "aop": "AOP.HO.5.0-00688-LANAI_E-1",
+        "apps_LE": "LE.UM.7.3.1.r1-14100-genericarmv8-64.0-1",
+        "apps_kernel": "KERNEL.PLATFORM.3.0.r1-07300-kernel.0-1",
+        "apps_qssi": "LA.QSSI.14.0.r1-13400.01-qssi.0-1",
+        "apps_vendor": "LA.VENDOR.14.3.0.r1-11400-lanai.0-1",
+        "audio": "AUDIO.LA.9.0.r1-05000-lanai.0-1",
+        "boot": "BOOT.MXF.2.1-01839-LANAI-2",
+        "btfm_hmt": "BTFW.HAMILTON.2.0.1-00340-PATCHZ-1",
+        "btfm_hmt_c": "BTFW.HAMILTON_C.2.0.1-00298-PATCHZ-1",
+        "camera": "CAMERA.LA.4.0.r2-04600-lanai.0-1",
+        "cdsp": "CDSP.HT.3.0-00828-LANAI-1",
+        "common": "Lanai.LA.1.0.r1-00865-STD.PROD-3",
+        "cpucp": "CPUCP.FW.1.0-00100-LANAI.EXT-1",
+        "cpuss_vm": "CPUSS.CPUSYS.VM.1.0-00017-LANAI.EXT-1",
+        "cv": "CV.LA.2.0.r1-04200-lanai.0-1",
+        "display": "DISPLAY.LA.4.0.r2-05300-lanai.0-1",
+        "glue": "GLUE.LANAI.LA.1.0-00260-NOOP_TEST_LANAI-1",
+        "graphics": "GRAPHICS.LA.14.0.r1-05100-lanai.0-1",
+        "hexlp": "HEXLP.LA.1.0.r1-01200-lanai.0-1",
+        "modem": "MPSS.DE.5.0-02575.2-LANAI_GEN_PACK-1",
+        "sensors": "SENSORS.LA.4.0.r2-02700-lanai.0-1",
+        "spss": "SPSS.A1.1.9-00065-LANAI-1",
+        "tz": "TZ.XF.5.28-00131.1-LANAIAAAAANAZT-1",
+        "tz_apps": "TZ.APPS.1.28-00035-LANAIAAAAANAZT-3",
+        "video": "VIDEO.LA.4.0.r2-04000-lanai.0-1",
+        "wapi": "WLAN_ADDON.VEN14.1.0-00003-CNSS_RMZ_WAPI-1",
+        "wlan_hmt": "WLAN.HMT.2.0-02428-QCAHMTSWPL_V1.0_V2.0_SILICONZ-1",
+        "xr": "XR.LA.1.0.r3-03200-lanai.0-1"
+    },
+    "Metabuild_Info": {
+        "Meta_Build_ID": "Lanai.LA.1.0.r1-00865-STD.PROD-3",
+        "Product_Flavor": "asic",
+        "Time_Stamp": "2024-03-29 01:53:13"
+    },
+    "Version": "1.0"
+}
