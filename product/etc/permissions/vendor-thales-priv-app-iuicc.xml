@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright Thales 2019 (c)
+
+  COPYRIGHT NOTICE:
+
+  Copyright (c) 2019 Thales (R)  All Rights Reserved
+
+  This software is the confidential and proprietary information of the owning
+  entity/ies of Thales Group ("Confidential Information"). You shall not
+  disclose modify or reproduce such Confidential Information unless separate
+  appropriate license rights are granted by the owning entity/ies of Thales
+  Group and shall use it only in accordance with the terms of the license
+  agreement you entered into with the owning entity/ies of Thales Group
+
+  DISCLAIMER OF WARRANTY:
+
+  THIS DOCUMENT IS PROVIDED "AS IS" AND ALL EXPRESS OR IMPLIED CONDITIONS,
+  REPRESENTATIONS AND WARRANTIES, INCLUDING, BUT NOT LIMITED TO, ANY IMPLIED
+  WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR
+  NON-INFRINGEMENT, ARE DISCLAIMED, EXCEPT TO THE EXTENT THAT SUCH DISCLAIMERS
+  ARE HELD TO BE LEGALLY INVALID. NEITHER ENTITY OF THALES GROUP SHALL BE
+  LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT NOR CONSEQUENTIAL DAMAGES OF
+  ANY KIND, ARISING OUT OF OR IN CONNECTION WITH THE USE OF THIS SOFTWARE OR
+  ITS DERIVATIVES.
+-->
+<permissions>
+    <privapp-permissions package="com.thales.dis.android.iuiccmgr">
+        <permission name="android.permission.MODIFY_PHONE_STATE" />
+        <permission name="android.permission.READ_PHONE_STATE" />
+        <permission name="android.permission.SYSTEM_ALERT_WINDOW" />
+    </privapp-permissions>
+</permissions>
