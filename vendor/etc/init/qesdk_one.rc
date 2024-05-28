@@ -1,0 +1,19 @@
+#==============================================================================
+#  qesdk_one.rc
+#
+#  Copyright (c) 2022 Qualcomm Technologies, Inc.
+#  All Rights Reserved.
+#  Confidential and Proprietary - Qualcomm Technologies, Inc.
+#===============================================================================
+
+on property:vendor.qesdk.one.service=*
+    mkdir /data/vendor/qesdk_token 0770 system system
+    mkdir /dev/socket/qesdk_one 0777 system system
+
+service vendor.qesdk_one /vendor/bin/qesdk-one
+    class hal
+    user system
+    group system
+    oneshot
+    disabled
+    console pts/0

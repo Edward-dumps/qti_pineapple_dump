@@ -1,0 +1,13 @@
+#=====================================================================
+# qsap_sanity.rc
+#
+# Copyright (c) 2023 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#==============================================================================
+
+service vendor.qsap.sanity /vendor/bin/qsap_sanity
+    class main
+    user system
+    group system
+    disabled

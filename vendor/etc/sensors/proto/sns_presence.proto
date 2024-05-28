@@ -1,0 +1,32 @@
+// @file sns_presence.proto
+//
+// Defines API for the Presence Sensor.
+//
+// Copyright (c) 2022 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+syntax = "proto2";
+import "nanopb.proto";
+
+// Message IDs for Presence Sensor
+enum sns_presence_msgid {
+  option (nanopb_enumopt).long_names = false;
+
+  SNS_PRESENCE_MSGID_SNS_PRESENCE_EVENT = 928;
+}
+
+enum sns_presence_event_type
+{
+  option (nanopb_enumopt).long_names = false;
+
+  SNS_PRESENCE_UNKNOWN          = 0;
+  SNS_PRESENCE_DETECTED         = 1;
+  SNS_PRESENCE_NOT_DETECTED     = 2;
+}
+
+// Events types from Presence sensor
+message sns_presence_event
+{
+  required sns_presence_event_type state = 1 [default = SNS_PRESENCE_UNKNOWN];
+}

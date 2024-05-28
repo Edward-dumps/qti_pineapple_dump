@@ -1,0 +1,8 @@
+service vendor.uwb-qti /vendor/bin/hw/android.hardware.uwb@service-qti
+    class hal
+    user uwb
+    group uwb system net_bt wakelock readtracefs oem_2912
+    capabilities BLOCK_SUSPEND
+
+on post-fs-data
+    mkdir /data/vendor/uwb 0770 uwb uwb

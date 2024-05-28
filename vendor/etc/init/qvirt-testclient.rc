@@ -1,0 +1,39 @@
+# Copyright (c) 2023 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+# Examples:
+# service qvirt-testclient_1 /vendor/bin/qvirt-testclient -n trustedvm -o start
+#     class hal
+#     user root
+#     group root
+#     oneshot
+#     disabled
+#
+# service qvirt-testclient_2 /vendor/bin/qvirt-testclient -n cpusys_vm -o start
+#     class hal
+#     user root
+#     group root
+#     oneshot
+#     disabled
+#
+# service qvirt-testclient_3 /vendor/bin/qvirt-testclient -n oemvm -o start
+#     class hal
+#     user root
+#     group root
+#     oneshot
+#     disabled
+#
+# service qvirt-testclient_4 /vendor/bin/qvirt-testclient -n trustedvm -o monitor
+#     class hal
+#     user root
+#     group root
+#     oneshot
+#     disabled
+#
+# service qvirt-testclient_5 /vendor/bin/qvirt-testclient -n cpusys_vm -o monitor
+#     class hal
+#     user root
+#     group root
+#     oneshot
+#     disabled

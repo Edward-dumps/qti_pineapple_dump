@@ -1,0 +1,15 @@
+service libcomposertestservice /vendor/bin/hw/libcomposertestservice
+    user system
+    group system graphics
+
+on property:vendor.display.enable_composer_test=1
+    start libcomposertestservice
+
+on property:vendor.display.enable_composer_test=1 && property:init.svc.vendor.qti.hardware.display.composer=stopping
+    stop libcomposertestservice
+
+on property:vendor.display.enable_composer_test=1 && property:init.svc.vendor.qti.hardware.display.composer=running
+    start libcomposertestservice
+
+on property:vendor.display.enable_composer_test=1 && property:init.svc.vendor.qti.hardware.display.composer=restarting
+    restart libcomposertestservice

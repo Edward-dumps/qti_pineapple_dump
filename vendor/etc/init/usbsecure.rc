@@ -1,0 +1,8 @@
+# Copyright (c) 2022 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+service vendor.usbsecure /vendor/bin/usbsecure
+    class core
+    user usb
+    group usb oem_2912

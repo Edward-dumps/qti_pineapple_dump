@@ -1,0 +1,17 @@
+#==============================================================================
+#       vendor.qti.wifi.wifimyftm-service.rc
+#  Copyright (c) 2023 Qualcomm Technologies, Inc.
+#  All Rights Reserved.
+#  Confidential and Proprietary - Qualcomm Technologies, Inc.
+#===============================================================================
+service vendor.wifimyftm /system/vendor/bin/wifimyftm
+    class main
+    capabilities NET_ADMIN
+    user wifi
+    group wifi net_admin
+    # AIDL interfaces
+    interface aidl vendor.qti.hardware.wifi.wifimyftm.IWifiMyFtm/default
+    # don't auto restart
+    oneshot
+    # start only when requested
+    disabled

@@ -1,0 +1,16 @@
+# Copyright (c) 2022 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+service vendor.ipa_lnx_agent /system/vendor/bin/ipa_lnx_agent
+	class main
+	disabled
+	user radio
+	group radio
+
+# seclabel u:r:ipa_lnx_agent_label:s0
+# The service will be restricted to userdebug build
+# variant. When we decide to move the service to user
+# variant we will re-evaluate the permissions
+on property:ro.build.type=userdebug
+	enable vendor.ipa_lnx_agent

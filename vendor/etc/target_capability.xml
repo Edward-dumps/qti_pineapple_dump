@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Copyright (c) 2019 Qualcomm Technologies, Inc
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+
+<TargetConfig>
+
+    <TargetInfo
+        Target="kamorta"
+        NumberOfPHYs="3"
+        PHYMaskValues="0x7F, 0x7F00, 0x7F0000" />
+    <TargetInfo
+        Target="saipan"
+        NumberOfPHYs="4"
+        PHYMaskValues="0x7F, 0x3F80, 0x1FC000, 0xFE00000" />
+    <TargetInfo
+        Target="talos"
+        NumberOfPHYs="4"
+        PHYMaskValues="0x7F, 0x3F80, 0x1FC000, 0x3000000" />
+    <TargetInfo
+        Target="kona"
+        NumberOfPHYs="4"
+        PHYMaskValues="0x7F, 0x3F80, 0x1FC000, 0xFE00000" />
+    <TargetInfo
+        Target="hana"
+        NumberOfPHYs="4"
+        PHYMaskValues="0x7F, 0x3F80, 0x1FC000, 0xFE00000" />
+    <TargetInfo
+        Target="moorea"
+        NumberOfPHYs="4"
+        PHYMaskValues="0x7F, 0x3F80, 0x1FC000, 0xFE00000" />
+    <TargetInfo
+        Target="rennell"
+        NumberOfPHYs="4"
+        PHYMaskValues="0x7F, 0x3F80, 0x1FC000, 0xFE00000" />
+    <TargetInfo
+        Target="lahaina"
+        NumberOfPHYs="4"
+        PHYMaskValues="0x7F, 0x3F80, 0x1FC000, 0xFE00000" />
+    <TargetInfo
+        Target="waipio"
+        NumberOfPHYs="4"
+        PHYMaskValues="0x7F, 0x3F80, 0x1FC000, 0xFE00000" />
+
+</TargetConfig>

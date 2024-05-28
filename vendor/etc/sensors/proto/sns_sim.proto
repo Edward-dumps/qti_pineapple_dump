@@ -1,0 +1,63 @@
+// @file sns_sim.proto
+//
+// Defines message types for the simulation sensor
+//
+// Copyright (c) 2017, 2019-2020, 2022 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+syntax = "proto2";
+import "nanopb.proto";
+import "sns_std_sensor.proto";
+import "sns_std_type.proto";
+
+// The simulation sensor handles setup requests for both online and offline
+// simulation. It also generates special events indicating end of simulation for
+// the clients to trigger teardown
+
+// The simulation sensor would generate sns_std_error_event with the specified
+// error codes for the following scenarios
+// 1. Invalid input requests : SNS_STD_ERROR_NOT_SUPPORTED
+// 2. Input dlf file read errors : SNS_STD_ERROR_INVALID_STATE
+
+// Simulation Sensor Attributes:
+// - SNS_STD_SENSOR_ATTRID_TYPE: "simulation"
+// - SNS_STD_SENSOR_ATTRID_STREAM_TYPE: SNS_STD_SENSOR_STREAM_TYPE_ON_CHANGE
+
+// Stream requests and events
+enum sns_sim_msgid
+{
+  option (nanopb_enumopt).long_names = false;
+  // message not required
+  // Purpose: To inform end of the file status to client
+  SNS_SIM_MSGID_SNS_SIM_EOF_EVENT = 780;
+
+  // Purpose: To acknowledge sim_start request from client
+  SNS_SIM_MSGID_SNS_SIM_START_ACK_EVENT = 781;
+
+  // Purpose: To start simulation by providing sim_start_request as payload
+  SNS_SIM_MSGID_SNS_SIM_START_REQ = 515;
+
+  // Purpose: To be used as a configuration event for sensorfs which do not support physical config event
+  SNS_SIM_MSGID_SNS_SIM_CONFIG_EVENT = 132;
+}
+
+// Header config packet proto message. It will come as a first packet in
+// event dlf file
+message header_info {
+  message sensor_info{
+      required sns_std_suid suid = 1;
+      required string data_type = 2;
+      repeated sns_std_attr attributes = 3;
+  }
+  repeated sensor_info info = 1;
+}
+
+// Sim start request. This request should be sent before starting any use case
+message sns_sim_start_req {
+  // absolute path to the dlf file
+  required string dlf_file = 1;
+
+  // number of repetitions for the provided input dlf
+  optional uint32 repetitions = 2 [default = 1];
+}

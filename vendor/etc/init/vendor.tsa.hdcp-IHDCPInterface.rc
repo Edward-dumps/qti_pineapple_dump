@@ -1,0 +1,11 @@
+#=======================================================================================
+#    Copyright (c) by Nanjing Tesiai Software Technology Co., Ltd.. All Rights Reserved.
+#=======================================================================================
+
+service tsa_hdcp_service /vendor/bin/tsa_hdcp_service
+    interface aidl vendor.tsa.hdcp.IHDCPInterface/default
+    class main
+    user system
+    group inet
+    disabled
+    oneshot

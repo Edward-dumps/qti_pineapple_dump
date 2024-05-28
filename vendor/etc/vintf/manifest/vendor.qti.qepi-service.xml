@@ -1,0 +1,17 @@
+<!--/*		
+* Copyright (c) 2023 Qualcomm Technologies, Inc.		
+* All Rights Reserved.		
+* Confidential and Proprietary - Qualcomm Technologies, Inc.		
+*/		
+-->
+<manifest version="1.0" type="device">
+    <hal format="aidl" >
+        <name>vendor.qti.qepi</name>
+        <version>1</version>
+        <interface>
+            <name>IQEPI</name>
+            <instance>qepi</instance>
+        </interface>
+    </hal>
+</manifest>
+

@@ -1,0 +1,22 @@
+#
+# Copyright (c) 2022 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+
+on early-init
+    chown system system /sys/devices/soc0/select_image
+    chown system system /sys/devices/soc0/image_version
+    chown system system /sys/devices/soc0/image_variant
+    chown system system /sys/devices/soc0/image_crm_version
+
+on early-boot
+    start vendor.diag-router
+
+service vendor.diag-router /vendor/bin/diag-router
+    class hal
+    user system
+    group system
+    capabilities KILL
+    disabled
+

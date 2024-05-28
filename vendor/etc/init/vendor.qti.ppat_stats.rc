@@ -1,0 +1,20 @@
+# Copyright (c) 2023 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+on post-fs-data
+    # create cache dir
+    mkdir /data/vendor/ppat_stats 0700 system system
+
+service  vendor.ppat_stats /vendor/bin/ppat_stats
+    class hal
+    user system
+    group system
+    disabled
+
+on property:persist.vendor.qtr.core.pst.product_bigdata=1
+    enable  vendor.ppat_stats
+    start  vendor.ppat_stats
+
+on property:persist.vendor.qtr.core.pst.product_bigdata=0
+    stop  vendor.ppat_stats

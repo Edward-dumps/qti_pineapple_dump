@@ -1,0 +1,99 @@
+<!-- SPEARHEAD Main configuration
+     Copyright (c) 2022 Qualcomm Technologies, Inc.
+     All Rights Reserved.
+     Confidential and Proprietary - Qualcomm Technologies, Inc. -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<list name="sprhd_main_cfg">
+  <!-- How much time clients have to collect data (ms) -->
+  <data name="client_grace_period" type="int"> 50 </data>
+
+  <!-- How much time clients have to collect data during QMI priority pulls (ms) -->
+  <data name="qmi_client_grace_period" type="int"> 50 </data>
+
+  <!-- Async thread launch tolerance (ms) -->
+  <data name="launch_grace_period" type="int"> 5 </data>
+
+  <!-- Time sent to client for duration of priority pull (ms) -->
+  <data name="qmi_client_polling_time" type="int"> 100 </data>
+
+  <!-- sprhd server timer waiting on agents to finish collecting priority stats (ms) -->
+  <data name="qmi_polling_time" type="int"> 150 </data>
+
+  <!-- Time before sending next QMI indication. Not currently used. -->
+  <data name="qmi_indication" type="int"> 205 </data>
+
+  <!-- How many indications to send in a QMI period. Not currently used. -->
+  <data name="qmi_indication_count" type="int"> 5 </data>
+
+  <!-- Frequency at which to send simulated qmi indications. (seconds) -->
+  <data name="timeout_qmi_indication" type="int"> 3 </data>
+
+  <!-- Turn on similated qmi indications, testing purposes only! -->
+  <data name="dummy_qmi_indication" type="int"> 0 </data>
+
+  <!-- Enable secure sockets communication -->
+  <data name="crypto_enabled" type="int"> 1 </data>
+
+  <!-- Enable Diag process initialization -->
+  <data name="diag_enabled" type="int"> 1 </data>
+
+  <!-- Enable QMI process initialization -->
+  <data name="qmi_enabled" type="int"> 1 </data>
+
+  <!-- Enable File process initialization -->
+  <data name="file_enabled" type="int"> 1 </data>
+
+  <!-- Path to the sprhd log file -->
+  <data name="file_path" type="string"> /data/vendor/tlpd/tlpd_sys_log </data>
+
+  <!-- Size of the log file in bytes, default 1 MB -->
+  <data name="file_size" type="int"> 1048576 </data>
+
+  <!-- Number of files, default 20 @ 1MB per file => 20MB total -->
+  <data name="num_files" type="int"> 20 </data>
+
+  <!-- Amount of RAM allocated to a single backlog buffer, 264KB -->
+  <data name="backlog_buffer_size" type="int"> 262144 </data>
+
+  <!-- Number of backlog buffers to use.
+      Total Backlog can be calculated as:
+      T = S * C where,
+      T = Total Backlog,
+      S = Buffer size,
+      C = Buffer count
+      Total Backlog = 4 * 264KB = 1MB
+    -->
+  <data name="backlog_buffer_count" type="int"> 4 </data>
+
+  <!-- Amount of time inbetween file flushes in seconds -->
+  <data name="flush_timer_s" type="int"> 30 </data>
+
+  <!-- Amount of time inbetween file flushes in milliseconds.
+       The totoal amount of time between flushes is:
+       Ft = 1000 * s + ms where,
+       Ft = time between flushes (in milliseconds),
+       s = seconds,
+       ms = milliseconds
+   -->
+  <data name="flush_timer_ms" type="int"> 0 </data>
+
+  <!-- Encrypt the entries in the file manager produced file
+    1 = true = encryption enabled
+    0 = false = encryption disabled
+  -->
+  <data name="file_encryption" type="int"> 1 </data>
+
+  <!-- Use a fixed record size for all agent logs, as opposed to a record
+      size that varies based on the size of the encrypted record. If a log
+      record is too big to fit in the fixed record size, it will be dropped.
+  -->
+  <data name="enable_fixed_record_size" type="int"> 1 </data>
+
+  <!-- Fixed record size is 16KB. For a file of size 128MB, 16KB log records
+       can be stored.
+  -->
+  <data name="fixed_record_size" type="int"> 16384 </data>
+
+</list>

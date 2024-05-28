@@ -1,0 +1,93 @@
+// @file qsh_oem1.proto
+//
+// Defines standard message types for the qsh_oem1
+//
+// qsh_oem1 is a template algorithm on how to use various streams such as 
+// sensors (AMD), qsh_location and qsh_wifi streams
+// 
+// This algorithm combines AMD with QSH connectivity drivers to 
+// demonstrate how sensor data can be fused with available Access Points from
+// qsh_wifi driver and location fix from the qsh_location driver
+//
+// Copyright (c) 2021-2023 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+syntax = "proto2";
+import "nanopb.proto";
+import "sns_amd.proto";
+import "sns_std_sensor.proto";
+
+/**
+ * SNS_STD_SENSOR_ATTRID_TYPE: "qsh_oem1"
+ * SNS_STD_SENSOR_ATTRID_VENDOR: "qualcomm"
+ * SNS_STD_SENSOR_ATTRID_AVAILABLE: true
+ * SNS_STD_SENSOR_ATTRID_API: [qsh_oem1.proto, sns_std_sensor.proto]
+ * SNS_STD_SENSOR_ATTRID_STREAM_TYPE: SNS_STD_SENSOR_STREAM_TYPE_ON_CHANGE
+ */
+
+/**
+ *-----------------------------------------------------------------------------
+ * Requests:
+ * 1. The qsh_oem1 sensor handles the sns_std_sensor_config
+ *    message request with msgid SNS_STD_SENSOR_MSGID_SNS_STD_ON_CHANGE_CONFIG
+ *    for all stream enable/update requests.
+ *    SNS_STD_SENSOR_ATTRID_STREAM_TYPE: SNS_STD_SENSOR_STREAM_TYPE_ON_CHANGE
+ *
+ * Events:
+ * 1. When the device is stationary (as per AMD) the qsh_oem1 sensor publishes 
+ *    the wifi scan result if the number of access points changes.
+ * 2. When the device is in motion, the qsh_oem1 sensor publishes the wifi scan 
+ *    result (plus location fix information if available) on receiving location 
+ *    position event if the number of access points changes.
+ *-----------------------------------------------------------------------------
+ */
+
+
+enum qsh_oem1_msgid
+{
+  option (nanopb_enumopt).long_names = false;
+
+  // Uses message: qsh_oem1_event
+  // Purpose: A data event sent from qsh_oem1 to the client that contains
+  //          the list of access points received from the qsh_wifi sensor
+  QSH_OEM1_MSGID_QSH_OEM1_EVENT = 1024;
+}
+
+message qsh_oem1_wifi_info
+{
+  // Basic Service Set Identifier (BSSID), represented in big-endian byte
+  // order, such that the first octet of the OUI is accessed in byte index 0.
+  required bytes bssid = 1[(nanopb).max_size = 6];
+
+  // RSSI (Received Signal Strength Indicator), in dBm. Typically negative
+  required sint32  rssi = 2;
+}
+
+message qsh_oem1_event
+{
+  // AMD event timestamp
+  required uint64 amd_event_ts = 1;
+
+  // AMD state
+  required sns_amd_event_type amd_state = 2 [default = SNS_AMD_EVENT_TYPE_UNKNOWN];
+
+  // Timestamp when the Ranging was completed in QTIMER ticks
+  required uint64 wifi_scan_ts = 3;
+  
+  // The total number of results returned by the scan ie this
+  // is total number of BSS/AP result found during this scan.
+  required uint32 wifi_access_point_count = 4;
+  
+  // Wifi scan result with access point info from the qsh_wifi driver.
+  repeated qsh_oem1_wifi_info wifi_access_point_list = 5;
+
+  // UTC timestamp for location fix in milliseconds since January 1, 1970
+  required uint64 location_fix_utc_ts = 6;
+  
+  // Fixed point latitude in degrees times 10^7 received from qsh_location driver
+  optional int32 location_latitude = 7;
+
+  // Fixed point longitude in degrees times 10^7 received from qsh_location driver
+  optional int32 location_longitude = 8;
+}

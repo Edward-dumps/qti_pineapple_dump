@@ -1,0 +1,30 @@
+// @file sns_ccd_ogv_debug.proto
+//
+// Defines the API for the CCD 5.0 OGV debug interface
+//
+// Copyright (c) 2021 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+syntax = "proto2";
+import "nanopb.proto";
+import "sns_std_sensor.proto";
+
+// GBE Sensor Attribute Requirements:
+// SNS_STD_SENSOR_ATTRID_TYPE: "ccd_ogv_debug"
+// SNS_STD_SENSOR_ATTRID_STREAM_TYPE: SNS_STD_SENSOR_STREAM_TYPE_STREAMING
+
+// Stream Requests:
+// - SNS_STD_SENSOR_MSGID_SNS_STD_SENSOR_CONFIG is used to enable the sensor
+
+
+// Stream events:
+//
+// - SNS_STD_SENSOR_MSGID_SNS_STD_SENSOR_CONFIG is sent as a reply to indicate the
+//   current sample rate
+// - SNS_STD_SENSOR_MSGID_SNS_STD_SENSOR_EVENT is used for output:
+//     data[0 .. 8]  : rotation matrix [3x3]. Units are rad
+//     data[9 .. 11] : Gravity vector [3x1]. Units are m/s^2
+//     data[12 .. 14]: Linear accel vector [3x1]. Units are m/s^2
+//     data[15 .. 18]: Game RV Quaternion [4x1]. Units are rad
+

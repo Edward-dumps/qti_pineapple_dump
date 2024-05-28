@@ -1,0 +1,973 @@
+REM Script CRC is 4AB8
+REM <============> ADDITIONAL DATA <============>
+REM RF parameter CRC is 8A57
+REM AppTool version: 0.77
+REM Script Date: 3/14/2023 11:00:42 AM
+REM Author: NFC Application Team
+REM Device: DB14
+REM Version: Rev.B
+REM Misc: Generic Ant. VCTCXO
+REM Matching Configuration is the following ;120;0.9;76;Differential;Yes;15;560;No;No;1000000;56;680;1400
+
+REM <============> CHIP INITIALIZATION <============>
+HW_RESET_I2C,00,
+SLEEP,00,200,
+NCI_CORE_RESET,00,
+SLEEP,00,200
+NCI_CORE_INIT,0000,
+SLEEP,00,200
+
+REM <============> CUSTOMER FIELD RESET <============>
+NCI_SEND_PROP,0F,02,040006010008000000000000a5a5
+SLEEP,00,200
+
+REM <========================> RF CUSTOM PARAMETERS <========================> 
+
+REM <=========> CFG STATIC CUSTOM Parameters <=========>
+NCI_SEND_PROP,0F,02, 04001001 00 24 4400C50A 0200000037304C51ED32040000080020C201C20100000100FFFF00FF42040000
+SLEEP,00,200,
+
+REM <=========> CFG DYNAMIC CUSTOM Parameters <=========>
+NCI_SEND_PROP,0F,02, 04001001 01 D0 4400C27F C4847C00C4847C00C4847C0001FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F0201FC0F029009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A9009971A
+SLEEP,00,200,
+NCI_SEND_PROP,0F,02, 04001001 02 C4 4400664B 0028522B0028522B0028522B0028522B0028EE2A0028EE2A0028EE2A0028EE2A0028522B0028522B0028522B0028522B0028EE2A0028EE2A0028EE2A0028EE2A0028522B0028522B0028522B0028522B0028EE2A0028EE2A0028EE2A0028EE2A6B2B84336B2B84336B2B84336B2B8433072B202B072B202B072B202B072B202B6B2B84336B2B84336B2B84336B2B8433072B202B072B202B072B202B072B202B6B2B84336B2B84336B2B84336B2B8433072B202B072B202B072B202B072B202B
+SLEEP,00,200,
+NCI_SEND_PROP,0F,02, 04001001 03 C4 4400814E 8933934B8933934B8933934B8933934B393352533933525339335253393352538933934B8933934B8933934B8933934B393352533933525339335253393352538933934B8933934B8933934B8933934B39335253393352533933525339335253AC53C553AC53C553AC53C553AC53C5536B6384636B6384636B6384636B638463AC53C553AC53C553AC53C553AC53C5536B6384636B6384636B6384636B638463AC53C553AC53C553AC53C553AC53C5536B6384636B6384636B6384636B638463
+SLEEP,00,200,
+NCI_SEND_PROP,0F,02, 04001001 04 C4 440092BA DE5BE35BDE5BE35BDE5BE35BDE5BE35B9D6BB66B9D6BB66B9D6BB66B9D6BB66BDE5BE35BDE5BE35BDE5BE35BDE5BE35B9D6BB66B9D6BB66B9D6BB66B9D6BB66BDE5BE35BDE5BE35BDE5BE35BDE5BE35B9D6BB66B9D6BB66B9D6BB66B9D6BB66BE55BE863E55BE863E55BE863E55BE863CF6BE873CF6BE873CF6BE873CF6BE873E55BE863E55BE863E55BE863E55BE863CF6BE873CF6BE873CF6BE873CF6BE873E55BE863E55BE863E55BE863E55BE863CF6BE873CF6BE873CF6BE873CF6BE873
+SLEEP,00,200,
+NCI_SEND_PROP,0F,02, 04001001 05 C4 44002CC1 52036B0352036B0352036B0352036B03EE020703EE020703EE020703EE02070352036B0352036B0352036B0352036B037701840177018401770184017701840152036B0352036B0352036B0352036B037701840177018401770184017701840184038903840389038403890384038903200339032003390320033903200339038403890384038903840389038403890390019D0190019D0190019D0190019D018403890384038903840389038403890390019D0190019D0190019D0190019D01
+SLEEP,00,200,
+NCI_SEND_PROP,0F,02, 04001001 06 C4 4400B304 9303AC039303AC039303AC039303AC0352036B0352036B0352036B0352036B039303AC039303AC039303AC039303AC03A901B601A901B601A901B601A901B6019303AC039303AC039303AC039303AC03A901B601A901B601A901B601A901B601C503DE03C503DE03C503DE03C503DE0384039D0384039D0384039D0384039D03C503DE03C503DE03C503DE03C503DE03C201CF01C201CF01C201CF01C201CF01C503DE03C503DE03C503DE03C503DE03C201CF01C201CF01C201CF01C201CF01
+SLEEP,00,200,
+NCI_SEND_PROP,0F,02, 04001001 07 D0 4400015E E303E503E303E503E303E503E303E503B603CF03B603CF03B603CF03B603CF03E303E503E303E503E303E503E303E503DB01E801DB01E801DB01E801DB01E801E303E503E303E503E303E503E303E503DB01E801DB01E801DB01E801DB01E801E8030000E8030000E8030000E8030000E8030000E8030000E8030000E8030000E8030000E8030000E8030000E8030000F4010000F4010000F4010000F4010000E8030000E8030000E8030000E8030000F4010000F4010000F4010000F40100000C0000000C0000000C000000
+SLEEP,00,200,
+
+REM <========================> REGISTRIES SETTING <========================> 
+
+REM <============> HARDWARE_CONFIGURATION <============> 
+NCI_SEND_PROP,0F,02,040002010030B00206138801F404060000FF080203000000000500000000000000000000000400090400000000000000000000000000
+SLEEP,00,200
+
+REM <============> NFCC_CONFIGURATION <============> 
+NCI_SEND_PROP,0F,02, 04000101 00 14 10570606060C8888060000000000000000000000
+SLEEP,00,200
+
+REM <============> IOT_CONFIGURATION <============> 
+NCI_SEND_PROP,0F,02,0400080100183F0002000000C14243000000000000000000000000000000
+SLEEP,00,200
+
+REM <============> UICC1_CONFIGURATION <============> 
+NCI_SEND_PROP,0F,02,04000A01001E40043C3C04B027100AF007D003E807D00064271003E832C8196400000000
+SLEEP,00,200
+
+REM <============> UICC2_CONFIGURATION <============> 
+NCI_SEND_PROP,0F,02,04000C01001E40043C3C04B027100AF007D003E807D00064271003E832C8196400000000
+SLEEP,00,200
+
+REM <============> SE_CONFIGURATION <============> 
+NCI_SEND_PROP,0F,02,04000B01001E40043C3C04B027100AF007D003E807D00064271003E832C8196400000000
+SLEEP,00,200
+
+REM <============> TEST_CONFIGURATION <============> 
+NCI_SEND_PROP,0F,02,0400110100480200020800000503E806401000040404040000000000010102020201010102000000000000B07110340032000000544040100040006D1C755F067805000000000000000000000000
+SLEEP,00,200
+
+REM <============> RF_ANTENNA1_CONFIGURATION <============> 
+NCI_SEND_PROP,0F,02,0400170100AC0000B4000E011E00E8030000062E131220201B0000000000000000000D32E2FF008000800F00FF7FFF7FF1FF008000800F00FF7FFF7F2E2E2E00000000000000000000001B02000000FF00010000A0BE0000000000000000000000000000A0BE0000000000000000000000000000A0BE000070BE0000A0BE0000A0BE000000400000000000000000000000000000004000000000000000000000000000000040000000400000004000000040
+SLEEP,00,200
+
+REM <============> LOGGING_CONFIGURATION <============> 
+NCI_SEND_PROP,0F,02,0400140100920102000A010000000F000F0F0000000000FF0101010000000000010101010000000001000000000000000000000000000000010101010101010101000000000000000000000000000000000001010000000000010000000000000001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+SLEEP,00,200
+
+REM <============> CUSTOMER FIELD UPDATE <============>
+NCI_SEND_PROP,0F,02,0400060100080000000000004AB8
+
+SLEEP,00,200
+HW_RESET_I2C,00,
+SLEEP,00,200,
+NCI_CORE_RESET,00,
+SLEEP,00,200,
+NCI_CORE_INIT,0000,
+
+REM <============> END OF SCRIPT <============> 
+
+REM <============> START of SOS (Script Overall Summary) <============> 
+
+REM Reminder: SOS part is for information only, it doesn't impact CRC or the configuration itself.
+
+REM HW_Config -- DC/DC for CE and RW -- NO
+REM HW_Config -- Does DC/DC converter tie its output to GND when disabled ? -- YES
+REM HW_Config -- eUICC/SPI-SE -- YES
+REM HW_Config -- Input clock -- External Ref Clk
+REM HW_Config -- Input Frequency (External Ref Clk) [MHz] -- 38.4
+REM HW_Config -- Input Frequency (XO) [MHz] -- 54.24
+REM HW_Config -- EXT-CLK Shape -- Sine
+REM HW_Config -- EXT_CLK Input voltage < [mV] (Input frequency = 26 MHz) -- 100-400
+REM HW_Config -- EXT_CLK Input voltage < [mV] (Input frequency not 26MHz) -- 100-1200
+REM HW_Config -- LDO Dropout between VDD_Tx and VDD_RF [mV] -- 200
+REM HW_Config -- Dynamic Power Control (DPC) -- Disabled
+REM HW_Config -- Number of polling before entering LPTD -- 5
+REM HW_Config -- GPIO to be used as CLF_PWR_MON -- 9
+REM HW_Config -- RW monitoring notifications are enabled (PROP_PWR_MON_RW_ON/RW_OFF) -- NO
+REM HW_Config -- Active mode Indication is enabled (CLF_PWR_MON_GPIO) -- NO
+REM HW_Config -- Slew rate control enabled for UICC1&2 -- NO
+REM HW_Config -- LPTD temperature Compensation Feature -- Disabled
+
+REM NFCC_Config -- Low Power Tag Detector -- OFF
+REM NFCC_Config -- Power mode used in switched off mode -- HIBERNATE
+REM NFCC_Config -- ST54L_UICC1 support -- ON
+REM NFCC_Config -- ST54L_SE support -- ON
+REM NFCC_Config -- NDEF support -- ON
+REM NFCC_Config -- ST54L_UICC2 support -- ON
+
+REM IoT_Config -- RW Interop support -- ON
+REM IoT_Config -- Send detailed error of RF_ISODEP_NAK_PRESENCE_CHECK -- OFF
+REM IoT_Config -- CE Interop support -- OFF
+REM IoT_Config -- AID Forward mode -- OFF
+REM IoT_Config -- Interop. with Mifare reader expecting NAK on RATS -- OFF
+REM IoT_Config -- Timeout to restore default CE RF parameters after a Field OFF (100 ms) -- 0
+REM IoT_Config -- Number of complete dynamic CE reconfiguration before standing on initial settings -- Loop Forever
+REM IoT_Config -- Reconfiguration after R(NACK) -- ON
+REM IoT_Config -- R(NACK) counter to trigger the reconfiguration -- 1
+REM IoT_Config -- Reconfiguration after several REQAs -- OFF
+REM IoT_Config -- REQA counter to trigger the reconfiguration -- 2
+REM IoT_Config -- Reconfiguration after several REQBs -- OFF
+REM IoT_Config -- REQB counter to trigger the reconfiguration -- 3
+
+REM UICC-SE_Config -- UICC1: Low power in switched off mode -- OFF
+REM UICC-SE_Config -- UICC2: Low power in switched off mode -- OFF
+REM UICC-SE_Config -- eSE: Low power in switched off mode -- OFF
+REM UICC-SE_Config -- UICC1: Force uses of HCI HID 0x02 -- No
+REM UICC-SE_Config -- UICC2/DH SE:  Force uses of HCI HID 0x02/0xC0 -- No
+
+REM Antenna_Config -- Active Load Modulation Phase (deg) - Type A&B - Default -- 0
+REM Antenna_Config -- Active Load Modulation Phase (deg) - Type A&B - 1st reconfig. -- 180
+REM Antenna_Config -- Active Load Modulation Phase (deg) - Type A&B - 2nd Reconfig. -- 270
+REM Antenna_Config -- Active Load Modulation Phase (deg) - Type F -- 30
+REM Antenna_Config -- Tag Detector Q Sensitivity [Dec] -- 18
+REM Antenna_Config -- Tag Detector Absolute I Sensitivity [Dec] -- 32
+REM Antenna_Config -- Tag Detector Absolute Q Sensitivity [Dec] -- 32
+REM Antenna_Config -- I-channel gradient for 4 Degree Celsius increase [signed Dec] -- 0
+REM Antenna_Config -- Q-channel gradient for 4 Degree Celsius increase [Signed Dec] -- 0
+REM Antenna_Config -- Demodulator attenuation during DPC RFI measurement [dB] -- -39
+REM Antenna_Config -- DPC VDD_RF Initial Voltage [V] -- 2.5
+REM Antenna_Config -- Lower I Threshold -- -30
+REM Antenna_Config -- Higher I Threshold -- 15
+REM Antenna_Config -- Lower Q Threshold -- -15
+REM Antenna_Config -- Higher Q Threshold -- 15
+REM Antenna_Config -- VDD_RF Reconfiguration level  -- 2.3
+REM Antenna_Config -- Collision Avoidance Sensitivity -- 18
+REM Antenna_Config -- External Damp Switch -- OFF
+REM Antenna_Config -- RFO driver resistance [Ohm] -- 0.501960784313725
+REM Antenna_Config -- Internal RFI divider resistance [Ohm] -- 150
+
+REM Logging_Config -- Maximum length per RF packet stored [Byte] -- 15
+REM Logging_Config -- Maximum length per SWP packet stored [Byte] -- 15
+REM Logging_Config -- Log SWP Type F CLT packets -- Enable
+REM Logging_Config -- Log SWP Type A CLT packets -- Enable
+
+REM Configuration RFO -- CE & EFD -- 0.501960784313725
+REM Configuration RFO -- TDET -- 0.501960784313725
+REM Configuration RFO -- Tx Damp -- 14.2222222222222
+REM Configuration RFI -- TDET -- 300
+REM Configuration RFI -- Rx Damp -- 300
+REM Configuration CDMP_ON -- RW -- 0.290322580645161
+REM Configuration CDMP_ON -- TDET -- 0.290322580645161
+REM Configuration CDMP_ON in CE mode -- (A&B) Low coupling -- 9
+REM Configuration CDMP_ON in CE mode -- (A&B) Low coupling -- 1600
+REM Configuration CDMP_ON in CE mode -- (A&B) High Coupling -- 1000000
+REM Configuration CDMP_ON in CE mode -- (A&B) High Coupling -- 1800
+REM Configuration CDMP_ON in CE mode -- (F) Low coupling -- 9
+REM Configuration CDMP_ON in CE mode -- (F) Low coupling -- 1600
+REM Configuration CDMP_ON in CE mode -- (F) High Coupling -- 1000000
+REM Configuration CDMP_ON in CE mode -- (F) High Coupling -- 1800
+REM Configuration Damping Value -- Damping duration (n/fc) -- 3.5
+REM Configuration Damping Value -- Enable Dynamic Aux Damping -- Enable
+REM Configuration Damping Value -- CDMP - Aux Damp (during 1ST peak) [Ohm] -- 75
+REM Configuration Damping Value -- CDMP - Aux Damp (during 2nd peak) [Ohm] -- 150
+REM Configuration Damping Value -- CDMP - Aux Damp (during 3rd peak) [Ohm] -- 150
+REM Configuration Damping Value -- Threshold: AUX Damping disable -- 1800
+REM Configuration Damping Value -- Threshold: Rx &Tx Damping disable -- 1800
+REM Configuration Damping Value -- Threshold: XOR to AND switch -- 1700
+
+REM CE-Config -- IFS - Type A XOR/AND mode -- XOR
+REM CE-Config -- FDT Reduction for 106 kbits/s -- -12
+REM CE-Config -- FDT Reduction for 106 kbits/s 1st ACK -- -12
+REM CE-Config -- FDT Reduction for 106 kbits/s 2nd ACK -- -12
+REM CE-Config -- External Field Detection level -- 60
+
+REM APC-IFS-Default-A-RSSI -- RSSI Window 0 -- 0
+REM APC-IFS-Default-A-APC -- RSSI Window 0 -- 3.2
+REM APC-IFS-Default-A-RSSI -- RSSI Window 1 -- 1700
+REM APC-IFS-Default-A-APC -- RSSI Window 1 -- 3.2
+REM APC-IFS-Default-A-RSSI -- RSSI Window 2 -- 1750
+REM APC-IFS-Default-A-APC -- RSSI Window 2 -- 3.2
+REM APC-IFS-Default-A-RSSI -- RSSI Window 3 -- 1800
+REM APC-IFS-Default-A-APC -- RSSI Window 3 -- 2.6
+REM APC-IFS-Default-A-RSSI -- RSSI Window 4 -- 1810
+REM APC-IFS-Default-A-APC -- RSSI Window 4 -- 2.6
+REM APC-IFS-Default-A-RSSI -- RSSI Window 5 -- 1830
+REM APC-IFS-Default-A-APC -- RSSI Window 5 -- 1
+REM APC-IFS-Default-A-RSSI -- RSSI Window 6 -- 1880
+REM APC-IFS-Default-A-APC -- RSSI Window 6 -- 0.8
+REM APC-IFS-Default-A-RSSI -- RSSI Window 7 -- 1930
+REM APC-IFS-Default-A-APC -- RSSI Window 7 -- 0.8
+REM APC-IFS-Default-A-RSSI -- RSSI Window 8 -- 1980
+REM APC-IFS-Default-A-APC -- RSSI Window 8 -- 0.65
+REM APC-IFS-Default-A-RSSI -- RSSI Window 9 -- 1990
+REM APC-IFS-Default-A-APC -- RSSI Window 9 -- 0.65
+REM APC-IFS-Default-A-RSSI -- RSSI Window 10 -- 1994
+REM APC-IFS-Default-A-APC -- RSSI Window 10 -- 0.65
+REM APC-IFS-Default-A-RSSI -- RSSI Window 11 -- 2000
+REM APC-IFS-Default-A-APC -- RSSI Window 11 -- 0.5
+
+REM APC-IFS-Default-B-RSSI -- RSSI Window 0 -- 0
+REM APC-IFS-Default-B-APC -- RSSI Window 0 -- 3.2
+REM APC-IFS-Default-B-RSSI -- RSSI Window 1 -- 1700
+REM APC-IFS-Default-B-APC -- RSSI Window 1 -- 3.2
+REM APC-IFS-Default-B-RSSI -- RSSI Window 2 -- 1750
+REM APC-IFS-Default-B-APC -- RSSI Window 2 -- 3.2
+REM APC-IFS-Default-B-RSSI -- RSSI Window 3 -- 1800
+REM APC-IFS-Default-B-APC -- RSSI Window 3 -- 2.6
+REM APC-IFS-Default-B-RSSI -- RSSI Window 4 -- 1810
+REM APC-IFS-Default-B-APC -- RSSI Window 4 -- 2.6
+REM APC-IFS-Default-B-RSSI -- RSSI Window 5 -- 1830
+REM APC-IFS-Default-B-APC -- RSSI Window 5 -- 1
+REM APC-IFS-Default-B-RSSI -- RSSI Window 6 -- 1880
+REM APC-IFS-Default-B-APC -- RSSI Window 6 -- 0.8
+REM APC-IFS-Default-B-RSSI -- RSSI Window 7 -- 1930
+REM APC-IFS-Default-B-APC -- RSSI Window 7 -- 0.8
+REM APC-IFS-Default-B-RSSI -- RSSI Window 8 -- 1980
+REM APC-IFS-Default-B-APC -- RSSI Window 8 -- 0.65
+REM APC-IFS-Default-B-RSSI -- RSSI Window 9 -- 1990
+REM APC-IFS-Default-B-APC -- RSSI Window 9 -- 0.65
+REM APC-IFS-Default-B-RSSI -- RSSI Window 10 -- 1994
+REM APC-IFS-Default-B-APC -- RSSI Window 10 -- 0.65
+REM APC-IFS-Default-B-RSSI -- RSSI Window 11 -- 2000
+REM APC-IFS-Default-B-APC -- RSSI Window 11 -- 0.5
+
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 0 -- 0
+REM APC-IFS-Default-F212-APC -- RSSI Window 0 -- 3.2
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 1 -- 1700
+REM APC-IFS-Default-F212-APC -- RSSI Window 1 -- 3.2
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 2 -- 1750
+REM APC-IFS-Default-F212-APC -- RSSI Window 2 -- 3.2
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 3 -- 1800
+REM APC-IFS-Default-F212-APC -- RSSI Window 3 -- 2.6
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 4 -- 1810
+REM APC-IFS-Default-F212-APC -- RSSI Window 4 -- 2.6
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 5 -- 1830
+REM APC-IFS-Default-F212-APC -- RSSI Window 5 -- 1
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 6 -- 1880
+REM APC-IFS-Default-F212-APC -- RSSI Window 6 -- 0.8
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 7 -- 1930
+REM APC-IFS-Default-F212-APC -- RSSI Window 7 -- 0.8
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 8 -- 1980
+REM APC-IFS-Default-F212-APC -- RSSI Window 8 -- 0.65
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 9 -- 1990
+REM APC-IFS-Default-F212-APC -- RSSI Window 9 -- 0.65
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 10 -- 1994
+REM APC-IFS-Default-F212-APC -- RSSI Window 10 -- 0.65
+REM APC-IFS-Default-F212-RSSI -- RSSI Window 11 -- 2000
+REM APC-IFS-Default-F212-APC -- RSSI Window 11 -- 0.5
+
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 0 -- 0
+REM APC-IFS-Default-F424-APC -- RSSI Window 0 -- 3.2
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 1 -- 1700
+REM APC-IFS-Default-F424-APC -- RSSI Window 1 -- 3.2
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 2 -- 1750
+REM APC-IFS-Default-F424-APC -- RSSI Window 2 -- 3.2
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 3 -- 1800
+REM APC-IFS-Default-F424-APC -- RSSI Window 3 -- 2.6
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 4 -- 1810
+REM APC-IFS-Default-F424-APC -- RSSI Window 4 -- 2.6
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 5 -- 1830
+REM APC-IFS-Default-F424-APC -- RSSI Window 5 -- 1
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 6 -- 1880
+REM APC-IFS-Default-F424-APC -- RSSI Window 6 -- 0.8
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 7 -- 1930
+REM APC-IFS-Default-F424-APC -- RSSI Window 7 -- 0.8
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 8 -- 1980
+REM APC-IFS-Default-F424-APC -- RSSI Window 8 -- 0.65
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 9 -- 1990
+REM APC-IFS-Default-F424-APC -- RSSI Window 9 -- 0.65
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 10 -- 1994
+REM APC-IFS-Default-F424-APC -- RSSI Window 10 -- 0.65
+REM APC-IFS-Default-F424-RSSI -- RSSI Window 11 -- 2000
+REM APC-IFS-Default-F424-APC -- RSSI Window 11 -- 0.5
+
+REM APC-IFS-1stReconfig-A-RSSI -- 0 -- 0
+REM APC-IFS-1stReconfig-A-APC -- 0 -- 3.2
+REM APC-IFS-1stReconfig-A-RSSI -- 1 -- 1700
+REM APC-IFS-1stReconfig-A-APC -- 1 -- 3.2
+REM APC-IFS-1stReconfig-A-RSSI -- 2 -- 1750
+REM APC-IFS-1stReconfig-A-APC -- 2 -- 3.2
+REM APC-IFS-1stReconfig-A-RSSI -- 3 -- 1800
+REM APC-IFS-1stReconfig-A-APC -- 3 -- 2.6
+REM APC-IFS-1stReconfig-A-RSSI -- 4 -- 1810
+REM APC-IFS-1stReconfig-A-APC -- 4 -- 2.6
+REM APC-IFS-1stReconfig-A-RSSI -- 5 -- 1830
+REM APC-IFS-1stReconfig-A-APC -- 5 -- 1
+REM APC-IFS-1stReconfig-A-RSSI -- 6 -- 1880
+REM APC-IFS-1stReconfig-A-APC -- 6 -- 0.8
+REM APC-IFS-1stReconfig-A-RSSI -- 7 -- 1930
+REM APC-IFS-1stReconfig-A-APC -- 7 -- 0.8
+REM APC-IFS-1stReconfig-A-RSSI -- 8 -- 1980
+REM APC-IFS-1stReconfig-A-APC -- 8 -- 0.65
+REM APC-IFS-1stReconfig-A-RSSI -- 9 -- 1990
+REM APC-IFS-1stReconfig-A-APC -- 9 -- 0.65
+REM APC-IFS-1stReconfig-A-RSSI -- 10 -- 1994
+REM APC-IFS-1stReconfig-A-APC -- 10 -- 0.65
+REM APC-IFS-1stReconfig-A-RSSI -- 11 -- 2000
+REM APC-IFS-1stReconfig-A-APC -- 11 -- 0.5
+
+REM APC-IFS-2ndReconfig-A-RSSI -- 0 -- 0
+REM APC-IFS-2ndReconfig-A-APC -- 0 -- 3.2
+REM APC-IFS-2ndReconfig-A-RSSI -- 1 -- 1700
+REM APC-IFS-2ndReconfig-A-APC -- 1 -- 3.2
+REM APC-IFS-2ndReconfig-A-RSSI -- 2 -- 1750
+REM APC-IFS-2ndReconfig-A-APC -- 2 -- 3.2
+REM APC-IFS-2ndReconfig-A-RSSI -- 3 -- 1800
+REM APC-IFS-2ndReconfig-A-APC -- 3 -- 2.6
+REM APC-IFS-2ndReconfig-A-RSSI -- 4 -- 1810
+REM APC-IFS-2ndReconfig-A-APC -- 4 -- 2.6
+REM APC-IFS-2ndReconfig-A-RSSI -- 5 -- 1830
+REM APC-IFS-2ndReconfig-A-APC -- 5 -- 1
+REM APC-IFS-2ndReconfig-A-RSSI -- 6 -- 1880
+REM APC-IFS-2ndReconfig-A-APC -- 6 -- 0.8
+REM APC-IFS-2ndReconfig-A-RSSI -- 7 -- 1930
+REM APC-IFS-2ndReconfig-A-APC -- 7 -- 0.8
+REM APC-IFS-2ndReconfig-A-RSSI -- 8 -- 1980
+REM APC-IFS-2ndReconfig-A-APC -- 8 -- 0.65
+REM APC-IFS-2ndReconfig-A-RSSI -- 9 -- 1990
+REM APC-IFS-2ndReconfig-A-APC -- 9 -- 0.65
+REM APC-IFS-2ndReconfig-A-RSSI -- 10 -- 1994
+REM APC-IFS-2ndReconfig-A-APC -- 10 -- 0.65
+REM APC-IFS-2ndReconfig-A-RSSI -- 11 -- 2000
+REM APC-IFS-2ndReconfig-A-APC -- 11 -- 0.5
+
+REM APC-IFS-1stReconfig-B-RSSI -- 0 -- 0
+REM APC-IFS-1stReconfig-B-APC -- 0 -- 3.2
+REM APC-IFS-1stReconfig-B-RSSI -- 1 -- 1700
+REM APC-IFS-1stReconfig-B-APC -- 1 -- 3.2
+REM APC-IFS-1stReconfig-B-RSSI -- 2 -- 1750
+REM APC-IFS-1stReconfig-B-APC -- 2 -- 3.2
+REM APC-IFS-1stReconfig-B-RSSI -- 3 -- 1800
+REM APC-IFS-1stReconfig-B-APC -- 3 -- 2.6
+REM APC-IFS-1stReconfig-B-RSSI -- 4 -- 1810
+REM APC-IFS-1stReconfig-B-APC -- 4 -- 2.6
+REM APC-IFS-1stReconfig-B-RSSI -- 5 -- 1830
+REM APC-IFS-1stReconfig-B-APC -- 5 -- 1
+REM APC-IFS-1stReconfig-B-RSSI -- 6 -- 1880
+REM APC-IFS-1stReconfig-B-APC -- 6 -- 0.8
+REM APC-IFS-1stReconfig-B-RSSI -- 7 -- 1930
+REM APC-IFS-1stReconfig-B-APC -- 7 -- 0.8
+REM APC-IFS-1stReconfig-B-RSSI -- 8 -- 1980
+REM APC-IFS-1stReconfig-B-APC -- 8 -- 0.65
+REM APC-IFS-1stReconfig-B-RSSI -- 9 -- 1990
+REM APC-IFS-1stReconfig-B-APC -- 9 -- 0.65
+REM APC-IFS-1stReconfig-B-RSSI -- 10 -- 1994
+REM APC-IFS-1stReconfig-B-APC -- 10 -- 0.65
+REM APC-IFS-1stReconfig-B-RSSI -- 11 -- 2000
+REM APC-IFS-1stReconfig-B-APC -- 11 -- 0.5
+
+REM APC-IFS-2ndReconfig-B-RSSI -- 0 -- 0
+REM APC-IFS-2ndReconfig-B-APC -- 0 -- 3.2
+REM APC-IFS-2ndReconfig-B-RSSI -- 1 -- 1700
+REM APC-IFS-2ndReconfig-B-APC -- 1 -- 3.2
+REM APC-IFS-2ndReconfig-B-RSSI -- 2 -- 1750
+REM APC-IFS-2ndReconfig-B-APC -- 2 -- 3.2
+REM APC-IFS-2ndReconfig-B-RSSI -- 3 -- 1800
+REM APC-IFS-2ndReconfig-B-APC -- 3 -- 2.6
+REM APC-IFS-2ndReconfig-B-RSSI -- 4 -- 1810
+REM APC-IFS-2ndReconfig-B-APC -- 4 -- 2.6
+REM APC-IFS-2ndReconfig-B-RSSI -- 5 -- 1830
+REM APC-IFS-2ndReconfig-B-APC -- 5 -- 1
+REM APC-IFS-2ndReconfig-B-RSSI -- 6 -- 1880
+REM APC-IFS-2ndReconfig-B-APC -- 6 -- 0.8
+REM APC-IFS-2ndReconfig-B-RSSI -- 7 -- 1930
+REM APC-IFS-2ndReconfig-B-APC -- 7 -- 0.8
+REM APC-IFS-2ndReconfig-B-RSSI -- 8 -- 1980
+REM APC-IFS-2ndReconfig-B-APC -- 8 -- 0.65
+REM APC-IFS-2ndReconfig-B-RSSI -- 9 -- 1990
+REM APC-IFS-2ndReconfig-B-APC -- 9 -- 0.65
+REM APC-IFS-2ndReconfig-B-RSSI -- 10 -- 1994
+REM APC-IFS-2ndReconfig-B-APC -- 10 -- 0.65
+REM APC-IFS-2ndReconfig-B-RSSI -- 11 -- 2000
+REM APC-IFS-2ndReconfig-B-APC -- 11 -- 0.5
+
+REM APC-IFS-1stReconfig-F212-RSSI -- 0 -- 0
+REM APC-IFS-1stReconfig-F212-APC -- 0 -- 3.2
+REM APC-IFS-1stReconfig-F212-RSSI -- 1 -- 1700
+REM APC-IFS-1stReconfig-F212-APC -- 1 -- 3.2
+REM APC-IFS-1stReconfig-F212-RSSI -- 2 -- 1750
+REM APC-IFS-1stReconfig-F212-APC -- 2 -- 3.2
+REM APC-IFS-1stReconfig-F212-RSSI -- 3 -- 1800
+REM APC-IFS-1stReconfig-F212-APC -- 3 -- 2.6
+REM APC-IFS-1stReconfig-F212-RSSI -- 4 -- 1810
+REM APC-IFS-1stReconfig-F212-APC -- 4 -- 2.6
+REM APC-IFS-1stReconfig-F212-RSSI -- 5 -- 1830
+REM APC-IFS-1stReconfig-F212-APC -- 5 -- 1
+REM APC-IFS-1stReconfig-F212-RSSI -- 6 -- 1880
+REM APC-IFS-1stReconfig-F212-APC -- 6 -- 0.8
+REM APC-IFS-1stReconfig-F212-RSSI -- 7 -- 1930
+REM APC-IFS-1stReconfig-F212-APC -- 7 -- 0.8
+REM APC-IFS-1stReconfig-F212-RSSI -- 8 -- 1980
+REM APC-IFS-1stReconfig-F212-APC -- 8 -- 0.65
+REM APC-IFS-1stReconfig-F212-RSSI -- 9 -- 1990
+REM APC-IFS-1stReconfig-F212-APC -- 9 -- 0.65
+REM APC-IFS-1stReconfig-F212-RSSI -- 10 -- 1994
+REM APC-IFS-1stReconfig-F212-APC -- 10 -- 0.65
+REM APC-IFS-1stReconfig-F212-RSSI -- 11 -- 2000
+REM APC-IFS-1stReconfig-F212-APC -- 11 -- 0.5
+
+REM APC-IFS-2ndReconfig-F212-RSSI -- 0 -- 0
+REM APC-IFS-2ndReconfig-F212-APC -- 0 -- 3.2
+REM APC-IFS-2ndReconfig-F212-RSSI -- 1 -- 1700
+REM APC-IFS-2ndReconfig-F212-APC -- 1 -- 3.2
+REM APC-IFS-2ndReconfig-F212-RSSI -- 2 -- 1750
+REM APC-IFS-2ndReconfig-F212-APC -- 2 -- 3.2
+REM APC-IFS-2ndReconfig-F212-RSSI -- 3 -- 1800
+REM APC-IFS-2ndReconfig-F212-APC -- 3 -- 2.6
+REM APC-IFS-2ndReconfig-F212-RSSI -- 4 -- 1810
+REM APC-IFS-2ndReconfig-F212-APC -- 4 -- 2.6
+REM APC-IFS-2ndReconfig-F212-RSSI -- 5 -- 1830
+REM APC-IFS-2ndReconfig-F212-APC -- 5 -- 1
+REM APC-IFS-2ndReconfig-F212-RSSI -- 6 -- 1880
+REM APC-IFS-2ndReconfig-F212-APC -- 6 -- 0.8
+REM APC-IFS-2ndReconfig-F212-RSSI -- 7 -- 1930
+REM APC-IFS-2ndReconfig-F212-APC -- 7 -- 0.8
+REM APC-IFS-2ndReconfig-F212-RSSI -- 8 -- 1980
+REM APC-IFS-2ndReconfig-F212-APC -- 8 -- 0.65
+REM APC-IFS-2ndReconfig-F212-RSSI -- 9 -- 1990
+REM APC-IFS-2ndReconfig-F212-APC -- 9 -- 0.65
+REM APC-IFS-2ndReconfig-F212-RSSI -- 10 -- 1994
+REM APC-IFS-2ndReconfig-F212-APC -- 10 -- 0.65
+REM APC-IFS-2ndReconfig-F212-RSSI -- 11 -- 2000
+REM APC-IFS-2ndReconfig-F212-APC -- 11 -- 0.5
+
+REM APC-IFS-1stReconfig-F424-RSSI -- 0 -- 0
+REM APC-IFS-1stReconfig-F424-APC -- 0 -- 3.2
+REM APC-IFS-1stReconfig-F424-RSSI -- 1 -- 1700
+REM APC-IFS-1stReconfig-F424-APC -- 1 -- 3.2
+REM APC-IFS-1stReconfig-F424-RSSI -- 2 -- 1750
+REM APC-IFS-1stReconfig-F424-APC -- 2 -- 3.2
+REM APC-IFS-1stReconfig-F424-RSSI -- 3 -- 1800
+REM APC-IFS-1stReconfig-F424-APC -- 3 -- 2.6
+REM APC-IFS-1stReconfig-F424-RSSI -- 4 -- 1810
+REM APC-IFS-1stReconfig-F424-APC -- 4 -- 2.6
+REM APC-IFS-1stReconfig-F424-RSSI -- 5 -- 1830
+REM APC-IFS-1stReconfig-F424-APC -- 5 -- 1
+REM APC-IFS-1stReconfig-F424-RSSI -- 6 -- 1880
+REM APC-IFS-1stReconfig-F424-APC -- 6 -- 0.8
+REM APC-IFS-1stReconfig-F424-RSSI -- 7 -- 1930
+REM APC-IFS-1stReconfig-F424-APC -- 7 -- 0.8
+REM APC-IFS-1stReconfig-F424-RSSI -- 8 -- 1980
+REM APC-IFS-1stReconfig-F424-APC -- 8 -- 0.65
+REM APC-IFS-1stReconfig-F424-RSSI -- 9 -- 1990
+REM APC-IFS-1stReconfig-F424-APC -- 9 -- 0.65
+REM APC-IFS-1stReconfig-F424-RSSI -- 10 -- 1994
+REM APC-IFS-1stReconfig-F424-APC -- 10 -- 0.65
+REM APC-IFS-1stReconfig-F424-RSSI -- 11 -- 2000
+REM APC-IFS-1stReconfig-F424-APC -- 11 -- 0.5
+
+REM APC-IFS-2ndReconfig-F424-RSSI -- 0 -- 0
+REM APC-IFS-2ndReconfig-F424-APC -- 0 -- 3.2
+REM APC-IFS-2ndReconfig-F424-RSSI -- 1 -- 1700
+REM APC-IFS-2ndReconfig-F424-APC -- 1 -- 3.2
+REM APC-IFS-2ndReconfig-F424-RSSI -- 2 -- 1750
+REM APC-IFS-2ndReconfig-F424-APC -- 2 -- 3.2
+REM APC-IFS-2ndReconfig-F424-RSSI -- 3 -- 1800
+REM APC-IFS-2ndReconfig-F424-APC -- 3 -- 2.6
+REM APC-IFS-2ndReconfig-F424-RSSI -- 4 -- 1810
+REM APC-IFS-2ndReconfig-F424-APC -- 4 -- 2.6
+REM APC-IFS-2ndReconfig-F424-RSSI -- 5 -- 1830
+REM APC-IFS-2ndReconfig-F424-APC -- 5 -- 1
+REM APC-IFS-2ndReconfig-F424-RSSI -- 6 -- 1880
+REM APC-IFS-2ndReconfig-F424-APC -- 6 -- 0.8
+REM APC-IFS-2ndReconfig-F424-RSSI -- 7 -- 1930
+REM APC-IFS-2ndReconfig-F424-APC -- 7 -- 0.8
+REM APC-IFS-2ndReconfig-F424-RSSI -- 8 -- 1980
+REM APC-IFS-2ndReconfig-F424-APC -- 8 -- 0.65
+REM APC-IFS-2ndReconfig-F424-RSSI -- 9 -- 1990
+REM APC-IFS-2ndReconfig-F424-APC -- 9 -- 0.65
+REM APC-IFS-2ndReconfig-F424-RSSI -- 10 -- 1994
+REM APC-IFS-2ndReconfig-F424-APC -- 10 -- 0.65
+REM APC-IFS-2ndReconfig-F424-RSSI -- 11 -- 2000
+REM APC-IFS-2ndReconfig-F424-APC -- 11 -- 0.5
+
+REM Phase-IFS-Default-A-RSSI -- 1 -- 1700
+REM Phase-IFS-Default-A-Phase -- 1 -- 0
+REM Phase-IFS-Default-A-RSSI -- 2 -- 1750
+REM Phase-IFS-Default-A-Phase -- 2 -- 0
+REM Phase-IFS-Default-A-RSSI -- 3 -- 1800
+REM Phase-IFS-Default-A-Phase -- 3 -- 0
+REM Phase-IFS-Default-A-RSSI -- 4 -- 1810
+REM Phase-IFS-Default-A-Phase -- 4 -- 0
+REM Phase-IFS-Default-A-RSSI -- 5 -- 1830
+REM Phase-IFS-Default-A-Phase -- 5 -- 0
+REM Phase-IFS-Default-A-RSSI -- 6 -- 1880
+REM Phase-IFS-Default-A-Phase -- 6 -- 0
+REM Phase-IFS-Default-A-RSSI -- 7 -- 1930
+REM Phase-IFS-Default-A-Phase -- 7 -- 0
+REM Phase-IFS-Default-A-RSSI -- 8 -- 1980
+REM Phase-IFS-Default-A-Phase -- 8 -- 0
+REM Phase-IFS-Default-A-RSSI -- 9 -- 1990
+REM Phase-IFS-Default-A-Phase -- 9 -- 0
+REM Phase-IFS-Default-A-RSSI -- 10 -- 1994
+REM Phase-IFS-Default-A-Phase -- 10 -- 0
+REM Phase-IFS-Default-A-RSSI -- 11 -- 2000
+REM Phase-IFS-Default-A-Phase -- 11 -- 0
+
+REM Phase-IFS-Default-B-RSSI -- 1 -- 1700
+REM Phase-IFS-Default-B-Phase -- 1 -- 0
+REM Phase-IFS-Default-B-RSSI -- 2 -- 1750
+REM Phase-IFS-Default-B-Phase -- 2 -- 0
+REM Phase-IFS-Default-B-RSSI -- 3 -- 1800
+REM Phase-IFS-Default-B-Phase -- 3 -- 0
+REM Phase-IFS-Default-B-RSSI -- 4 -- 1810
+REM Phase-IFS-Default-B-Phase -- 4 -- 0
+REM Phase-IFS-Default-B-RSSI -- 5 -- 1830
+REM Phase-IFS-Default-B-Phase -- 5 -- 0
+REM Phase-IFS-Default-B-RSSI -- 6 -- 1880
+REM Phase-IFS-Default-B-Phase -- 6 -- 0
+REM Phase-IFS-Default-B-RSSI -- 7 -- 1930
+REM Phase-IFS-Default-B-Phase -- 7 -- 0
+REM Phase-IFS-Default-B-RSSI -- 8 -- 1980
+REM Phase-IFS-Default-B-Phase -- 8 -- 0
+REM Phase-IFS-Default-B-RSSI -- 9 -- 1990
+REM Phase-IFS-Default-B-Phase -- 9 -- 0
+REM Phase-IFS-Default-B-RSSI -- 10 -- 1994
+REM Phase-IFS-Default-B-Phase -- 10 -- 0
+REM Phase-IFS-Default-B-RSSI -- 11 -- 2000
+REM Phase-IFS-Default-B-Phase -- 11 -- 0
+
+REM Phase-IFS-Default-F212-RSSI -- 1 -- 1700
+REM Phase-IFS-Default-F212-Phase -- 1 -- 0
+REM Phase-IFS-Default-F212-RSSI -- 2 -- 1750
+REM Phase-IFS-Default-F212-Phase -- 2 -- 0
+REM Phase-IFS-Default-F212-RSSI -- 3 -- 1800
+REM Phase-IFS-Default-F212-Phase -- 3 -- 0
+REM Phase-IFS-Default-F212-RSSI -- 4 -- 1810
+REM Phase-IFS-Default-F212-Phase -- 4 -- 0
+REM Phase-IFS-Default-F212-RSSI -- 5 -- 1830
+REM Phase-IFS-Default-F212-Phase -- 5 -- 0
+REM Phase-IFS-Default-F212-RSSI -- 6 -- 1880
+REM Phase-IFS-Default-F212-Phase -- 6 -- 0
+REM Phase-IFS-Default-F212-RSSI -- 7 -- 1930
+REM Phase-IFS-Default-F212-Phase -- 7 -- 0
+REM Phase-IFS-Default-F212-RSSI -- 8 -- 1980
+REM Phase-IFS-Default-F212-Phase -- 8 -- 0
+REM Phase-IFS-Default-F212-RSSI -- 9 -- 1990
+REM Phase-IFS-Default-F212-Phase -- 9 -- 0
+REM Phase-IFS-Default-F212-RSSI -- 10 -- 1994
+REM Phase-IFS-Default-F212-Phase -- 10 -- 0
+REM Phase-IFS-Default-F212-RSSI -- 11 -- 2000
+REM Phase-IFS-Default-F212-Phase -- 11 -- 0
+
+REM Phase-IFS-Default-F424-RSSI -- 1 -- 1700
+REM Phase-IFS-Default-F424-Phase -- 1 -- 0
+REM Phase-IFS-Default-F424-RSSI -- 2 -- 1750
+REM Phase-IFS-Default-F424-Phase -- 2 -- 0
+REM Phase-IFS-Default-F424-RSSI -- 3 -- 1800
+REM Phase-IFS-Default-F424-Phase -- 3 -- 0
+REM Phase-IFS-Default-F424-RSSI -- 4 -- 1810
+REM Phase-IFS-Default-F424-Phase -- 4 -- 0
+REM Phase-IFS-Default-F424-RSSI -- 5 -- 1830
+REM Phase-IFS-Default-F424-Phase -- 5 -- 0
+REM Phase-IFS-Default-F424-RSSI -- 6 -- 1880
+REM Phase-IFS-Default-F424-Phase -- 6 -- 0
+REM Phase-IFS-Default-F424-RSSI -- 7 -- 1930
+REM Phase-IFS-Default-F424-Phase -- 7 -- 0
+REM Phase-IFS-Default-F424-RSSI -- 8 -- 1980
+REM Phase-IFS-Default-F424-Phase -- 8 -- 0
+REM Phase-IFS-Default-F424-RSSI -- 9 -- 1990
+REM Phase-IFS-Default-F424-Phase -- 9 -- 0
+REM Phase-IFS-Default-F424-RSSI -- 10 -- 1994
+REM Phase-IFS-Default-F424-Phase -- 10 -- 0
+REM Phase-IFS-Default-F424-RSSI -- 11 -- 2000
+REM Phase-IFS-Default-F424-Phase -- 11 -- 0
+
+REM Phase-IFS-1stReconfig-A-RSSI -- 1 -- 1700
+REM Phase-IFS-1stReconfig-A-Phase -- 1 -- 0
+REM Phase-IFS-1stReconfig-A-RSSI -- 2 -- 1750
+REM Phase-IFS-1stReconfig-A-Phase -- 2 -- 0
+REM Phase-IFS-1stReconfig-A-RSSI -- 3 -- 1800
+REM Phase-IFS-1stReconfig-A-Phase -- 3 -- 0
+REM Phase-IFS-1stReconfig-A-RSSI -- 4 -- 1810
+REM Phase-IFS-1stReconfig-A-Phase -- 4 -- 0
+REM Phase-IFS-1stReconfig-A-RSSI -- 5 -- 1830
+REM Phase-IFS-1stReconfig-A-Phase -- 5 -- 0
+REM Phase-IFS-1stReconfig-A-RSSI -- 6 -- 1880
+REM Phase-IFS-1stReconfig-A-Phase -- 6 -- 0
+REM Phase-IFS-1stReconfig-A-RSSI -- 7 -- 1930
+REM Phase-IFS-1stReconfig-A-Phase -- 7 -- 0
+REM Phase-IFS-1stReconfig-A-RSSI -- 8 -- 1980
+REM Phase-IFS-1stReconfig-A-Phase -- 8 -- 0
+REM Phase-IFS-1stReconfig-A-RSSI -- 9 -- 1990
+REM Phase-IFS-1stReconfig-A-Phase -- 9 -- 0
+REM Phase-IFS-1stReconfig-A-RSSI -- 10 -- 1994
+REM Phase-IFS-1stReconfig-A-Phase -- 10 -- 0
+REM Phase-IFS-1stReconfig-A-RSSI -- 11 -- 2000
+REM Phase-IFS-1stReconfig-A-Phase -- 11 -- 0
+
+REM Phase-IFS-2ndReconfig-A-RSSI -- 1 -- 1700
+REM Phase-IFS-2ndReconfig-A-Phase -- 1 -- 0
+REM Phase-IFS-2ndReconfig-A-RSSI -- 2 -- 1750
+REM Phase-IFS-2ndReconfig-A-Phase -- 2 -- 0
+REM Phase-IFS-2ndReconfig-A-RSSI -- 3 -- 1800
+REM Phase-IFS-2ndReconfig-A-Phase -- 3 -- 0
+REM Phase-IFS-2ndReconfig-A-RSSI -- 4 -- 1810
+REM Phase-IFS-2ndReconfig-A-Phase -- 4 -- 0
+REM Phase-IFS-2ndReconfig-A-RSSI -- 5 -- 1830
+REM Phase-IFS-2ndReconfig-A-Phase -- 5 -- 0
+REM Phase-IFS-2ndReconfig-A-RSSI -- 6 -- 1880
+REM Phase-IFS-2ndReconfig-A-Phase -- 6 -- 0
+REM Phase-IFS-2ndReconfig-A-RSSI -- 7 -- 1930
+REM Phase-IFS-2ndReconfig-A-Phase -- 7 -- 0
+REM Phase-IFS-2ndReconfig-A-RSSI -- 8 -- 1980
+REM Phase-IFS-2ndReconfig-A-Phase -- 8 -- 0
+REM Phase-IFS-2ndReconfig-A-RSSI -- 9 -- 1990
+REM Phase-IFS-2ndReconfig-A-Phase -- 9 -- 0
+REM Phase-IFS-2ndReconfig-A-RSSI -- 10 -- 1994
+REM Phase-IFS-2ndReconfig-A-Phase -- 10 -- 0
+REM Phase-IFS-2ndReconfig-A-RSSI -- 11 -- 2000
+REM Phase-IFS-2ndReconfig-A-Phase -- 11 -- 0
+
+REM Phase-IFS-1stReconfig-B-RSSI -- 1 -- 1700
+REM Phase-IFS-1stReconfig-B-Phase -- 1 -- 0
+REM Phase-IFS-1stReconfig-B-RSSI -- 2 -- 1750
+REM Phase-IFS-1stReconfig-B-Phase -- 2 -- 0
+REM Phase-IFS-1stReconfig-B-RSSI -- 3 -- 1800
+REM Phase-IFS-1stReconfig-B-Phase -- 3 -- 0
+REM Phase-IFS-1stReconfig-B-RSSI -- 4 -- 1810
+REM Phase-IFS-1stReconfig-B-Phase -- 4 -- 0
+REM Phase-IFS-1stReconfig-B-RSSI -- 5 -- 1830
+REM Phase-IFS-1stReconfig-B-Phase -- 5 -- 0
+REM Phase-IFS-1stReconfig-B-RSSI -- 6 -- 1880
+REM Phase-IFS-1stReconfig-B-Phase -- 6 -- 0
+REM Phase-IFS-1stReconfig-B-RSSI -- 7 -- 1930
+REM Phase-IFS-1stReconfig-B-Phase -- 7 -- 0
+REM Phase-IFS-1stReconfig-B-RSSI -- 8 -- 1980
+REM Phase-IFS-1stReconfig-B-Phase -- 8 -- 0
+REM Phase-IFS-1stReconfig-B-RSSI -- 9 -- 1990
+REM Phase-IFS-1stReconfig-B-Phase -- 9 -- 0
+REM Phase-IFS-1stReconfig-B-RSSI -- 10 -- 1994
+REM Phase-IFS-1stReconfig-B-Phase -- 10 -- 0
+REM Phase-IFS-1stReconfig-B-RSSI -- 11 -- 2000
+REM Phase-IFS-1stReconfig-B-Phase -- 11 -- 0
+
+REM Phase-IFS-2ndReconfig-B-RSSI -- 1 -- 1700
+REM Phase-IFS-2ndReconfig-B-Phase -- 1 -- 0
+REM Phase-IFS-2ndReconfig-B-RSSI -- 2 -- 1750
+REM Phase-IFS-2ndReconfig-B-Phase -- 2 -- 0
+REM Phase-IFS-2ndReconfig-B-RSSI -- 3 -- 1800
+REM Phase-IFS-2ndReconfig-B-Phase -- 3 -- 0
+REM Phase-IFS-2ndReconfig-B-RSSI -- 4 -- 1810
+REM Phase-IFS-2ndReconfig-B-Phase -- 4 -- 0
+REM Phase-IFS-2ndReconfig-B-RSSI -- 5 -- 1830
+REM Phase-IFS-2ndReconfig-B-Phase -- 5 -- 0
+REM Phase-IFS-2ndReconfig-B-RSSI -- 6 -- 1880
+REM Phase-IFS-2ndReconfig-B-Phase -- 6 -- 0
+REM Phase-IFS-2ndReconfig-B-RSSI -- 7 -- 1930
+REM Phase-IFS-2ndReconfig-B-Phase -- 7 -- 0
+REM Phase-IFS-2ndReconfig-B-RSSI -- 8 -- 1980
+REM Phase-IFS-2ndReconfig-B-Phase -- 8 -- 0
+REM Phase-IFS-2ndReconfig-B-RSSI -- 9 -- 1990
+REM Phase-IFS-2ndReconfig-B-Phase -- 9 -- 0
+REM Phase-IFS-2ndReconfig-B-RSSI -- 10 -- 1994
+REM Phase-IFS-2ndReconfig-B-Phase -- 10 -- 0
+REM Phase-IFS-2ndReconfig-B-RSSI -- 11 -- 2000
+REM Phase-IFS-2ndReconfig-B-Phase -- 11 -- 0
+
+REM Phase-IFS-1stReconfig-F212-RSSI -- 1 -- 1700
+REM Phase-IFS-1stReconfig-F212-Phase -- 1 -- 0
+REM Phase-IFS-1stReconfig-F212-RSSI -- 2 -- 1750
+REM Phase-IFS-1stReconfig-F212-Phase -- 2 -- 0
+REM Phase-IFS-1stReconfig-F212-RSSI -- 3 -- 1800
+REM Phase-IFS-1stReconfig-F212-Phase -- 3 -- 0
+REM Phase-IFS-1stReconfig-F212-RSSI -- 4 -- 1810
+REM Phase-IFS-1stReconfig-F212-Phase -- 4 -- 0
+REM Phase-IFS-1stReconfig-F212-RSSI -- 5 -- 1830
+REM Phase-IFS-1stReconfig-F212-Phase -- 5 -- 0
+REM Phase-IFS-1stReconfig-F212-RSSI -- 6 -- 1880
+REM Phase-IFS-1stReconfig-F212-Phase -- 6 -- 0
+REM Phase-IFS-1stReconfig-F212-RSSI -- 7 -- 1930
+REM Phase-IFS-1stReconfig-F212-Phase -- 7 -- 0
+REM Phase-IFS-1stReconfig-F212-RSSI -- 8 -- 1980
+REM Phase-IFS-1stReconfig-F212-Phase -- 8 -- 0
+REM Phase-IFS-1stReconfig-F212-RSSI -- 9 -- 1990
+REM Phase-IFS-1stReconfig-F212-Phase -- 9 -- 0
+REM Phase-IFS-1stReconfig-F212-RSSI -- 10 -- 1994
+REM Phase-IFS-1stReconfig-F212-Phase -- 10 -- 0
+REM Phase-IFS-1stReconfig-F212-RSSI -- 11 -- 2000
+REM Phase-IFS-1stReconfig-F212-Phase -- 11 -- 0
+
+REM Phase-IFS-2ndReconfig-F212-RSSI -- 1 -- 1700
+REM Phase-IFS-2ndReconfig-F212-Phase -- 1 -- 0
+REM Phase-IFS-2ndReconfig-F212-RSSI -- 2 -- 1750
+REM Phase-IFS-2ndReconfig-F212-Phase -- 2 -- 0
+REM Phase-IFS-2ndReconfig-F212-RSSI -- 3 -- 1800
+REM Phase-IFS-2ndReconfig-F212-Phase -- 3 -- 0
+REM Phase-IFS-2ndReconfig-F212-RSSI -- 4 -- 1810
+REM Phase-IFS-2ndReconfig-F212-Phase -- 4 -- 0
+REM Phase-IFS-2ndReconfig-F212-RSSI -- 5 -- 1830
+REM Phase-IFS-2ndReconfig-F212-Phase -- 5 -- 0
+REM Phase-IFS-2ndReconfig-F212-RSSI -- 6 -- 1880
+REM Phase-IFS-2ndReconfig-F212-Phase -- 6 -- 0
+REM Phase-IFS-2ndReconfig-F212-RSSI -- 7 -- 1930
+REM Phase-IFS-2ndReconfig-F212-Phase -- 7 -- 0
+REM Phase-IFS-2ndReconfig-F212-RSSI -- 8 -- 1980
+REM Phase-IFS-2ndReconfig-F212-Phase -- 8 -- 0
+REM Phase-IFS-2ndReconfig-F212-RSSI -- 9 -- 1990
+REM Phase-IFS-2ndReconfig-F212-Phase -- 9 -- 0
+REM Phase-IFS-2ndReconfig-F212-RSSI -- 10 -- 1994
+REM Phase-IFS-2ndReconfig-F212-Phase -- 10 -- 0
+REM Phase-IFS-2ndReconfig-F212-RSSI -- 11 -- 2000
+REM Phase-IFS-2ndReconfig-F212-Phase -- 11 -- 0
+
+REM Phase-IFS-1stReconfig-F424-RSSI -- 1 -- 1700
+REM Phase-IFS-1stReconfig-F424-Phase -- 1 -- 0
+REM Phase-IFS-1stReconfig-F424-RSSI -- 2 -- 1750
+REM Phase-IFS-1stReconfig-F424-Phase -- 2 -- 0
+REM Phase-IFS-1stReconfig-F424-RSSI -- 3 -- 1800
+REM Phase-IFS-1stReconfig-F424-Phase -- 3 -- 0
+REM Phase-IFS-1stReconfig-F424-RSSI -- 4 -- 1810
+REM Phase-IFS-1stReconfig-F424-Phase -- 4 -- 0
+REM Phase-IFS-1stReconfig-F424-RSSI -- 5 -- 1830
+REM Phase-IFS-1stReconfig-F424-Phase -- 5 -- 0
+REM Phase-IFS-1stReconfig-F424-RSSI -- 6 -- 1880
+REM Phase-IFS-1stReconfig-F424-Phase -- 6 -- 0
+REM Phase-IFS-1stReconfig-F424-RSSI -- 7 -- 1930
+REM Phase-IFS-1stReconfig-F424-Phase -- 7 -- 0
+REM Phase-IFS-1stReconfig-F424-RSSI -- 8 -- 1980
+REM Phase-IFS-1stReconfig-F424-Phase -- 8 -- 0
+REM Phase-IFS-1stReconfig-F424-RSSI -- 9 -- 1990
+REM Phase-IFS-1stReconfig-F424-Phase -- 9 -- 0
+REM Phase-IFS-1stReconfig-F424-RSSI -- 10 -- 1994
+REM Phase-IFS-1stReconfig-F424-Phase -- 10 -- 0
+REM Phase-IFS-1stReconfig-F424-RSSI -- 11 -- 2000
+REM Phase-IFS-1stReconfig-F424-Phase -- 11 -- 0
+
+REM Phase-IFS-2ndReconfig-F424-RSSI -- 1 -- 1700
+REM Phase-IFS-2ndReconfig-F424-Phase -- 1 -- 0
+REM Phase-IFS-2ndReconfig-F424-RSSI -- 2 -- 1750
+REM Phase-IFS-2ndReconfig-F424-Phase -- 2 -- 0
+REM Phase-IFS-2ndReconfig-F424-RSSI -- 3 -- 1800
+REM Phase-IFS-2ndReconfig-F424-Phase -- 3 -- 0
+REM Phase-IFS-2ndReconfig-F424-RSSI -- 4 -- 1810
+REM Phase-IFS-2ndReconfig-F424-Phase -- 4 -- 0
+REM Phase-IFS-2ndReconfig-F424-RSSI -- 5 -- 1830
+REM Phase-IFS-2ndReconfig-F424-Phase -- 5 -- 0
+REM Phase-IFS-2ndReconfig-F424-RSSI -- 6 -- 1880
+REM Phase-IFS-2ndReconfig-F424-Phase -- 6 -- 0
+REM Phase-IFS-2ndReconfig-F424-RSSI -- 7 -- 1930
+REM Phase-IFS-2ndReconfig-F424-Phase -- 7 -- 0
+REM Phase-IFS-2ndReconfig-F424-RSSI -- 8 -- 1980
+REM Phase-IFS-2ndReconfig-F424-Phase -- 8 -- 0
+REM Phase-IFS-2ndReconfig-F424-RSSI -- 9 -- 1990
+REM Phase-IFS-2ndReconfig-F424-Phase -- 9 -- 0
+REM Phase-IFS-2ndReconfig-F424-RSSI -- 10 -- 1994
+REM Phase-IFS-2ndReconfig-F424-Phase -- 10 -- 0
+REM Phase-IFS-2ndReconfig-F424-RSSI -- 11 -- 2000
+REM Phase-IFS-2ndReconfig-F424-Phase -- 11 -- 0
+
+REM <============> End of SOS (Script Overall Summary) <============> 
+
+REM <============> START of !! ST INTERNAL ONLY !! SOS <============> 
+
+REM HW_Config -- DH Integrated SE enabled (in addition to UICC and ST54L_SE/eUICC-SPI-SE) -- NO
+REM HW_Config -- UICC is supplied in Airplane mode -- YES
+REM HW_Config -- Maximum delay for Ext Clock Source to be stable [µs] -- 5000
+REM HW_Config -- Minimum delay for Ext Clock Source to be stable [µs] -- 500
+REM HW_Config -- Vbat_LDET threshold to go to Hibernate mode -- 2.4
+REM HW_Config -- DH link slave address [Hex] -- 08
+REM HW_Config -- DH I2C Speed mode -- < 1 Mbps
+REM HW_Config -- Master code for I2C HS [Binary] -- 000
+REM HW_Config -- DH link mode -- Interrupt mode
+REM HW_Config -- IRQ_OUT pin active level -- Active High
+REM HW_Config -- IRQ_OUT pin output characteristics -- Push Pull
+REM HW_Config -- ALM Technology -- IFS
+REM HW_Config -- Send 0x7E at beginning of every I2C NCI messages -- Disabled
+REM HW_Config -- CLF nRESET propagates to SE -- NO
+REM HW_Config -- In switched off SE follows CLF in hibernate  -- NO
+REM HW_Config -- Reset eUICC/SPI-SE on VPSIO OFF detection -- YES
+REM HW_Config -- UICC1 is present (linked to Value in NFCC_Config) -- YES
+REM HW_Config -- UICC2 is present (linked to Value in NFCC_Config) -- YES
+REM HW_Config -- SE hibernate mode control through GPIO -- NO
+REM HW_Config -- GPIO to be used for SE hibernate mode control -- 0
+
+REM NFCC_Config -- Switched OFF mode support -- ON
+REM NFCC_Config -- Block technology A in card emulation towards UICC_1 -- NO
+REM NFCC_Config -- Block technology B in card emulation towards UICC_1 -- NO
+REM NFCC_Config -- Block technology F in card emulation towards UICC_1 -- NO
+REM NFCC_Config -- Block technology A in card emulation towards UICC_2 -- NO
+REM NFCC_Config -- Block technology B in card emulation towards UICC_2 -- NO
+REM NFCC_Config -- Block technology F in card emulation towards UICC_2 -- NO
+REM NFCC_Config -- Block technology A in card emulation towards ST54L_SE -- NO
+REM NFCC_Config -- Block technology B in card emulation towards ST54L_SE -- NO
+REM NFCC_Config -- Block technology F in card emulation towards ST54L_SE -- NO
+REM NFCC_Config -- Allow UICC_1 to create pipes toward Reader RF gates -- YES
+REM NFCC_Config -- Allow UICC_1 to create pipes toward Card RF gates -- YES
+REM NFCC_Config -- Allow UICC_2 to create pipes toward Reader RF gates -- YES
+REM NFCC_Config -- Allow UICC_2 to create pipes toward Card RF gates -- YES
+REM NFCC_Config -- Allow ST54L_SE to create pipes toward Reader RF gates -- YES
+REM NFCC_Config -- Allow ST54L_SE to create pipes toward Card RF gates -- YES
+REM NFCC_Config -- Max. RX frame size accepted in Listener mode [Bytes] -- 256
+REM NFCC_Config -- Max. TX frame in Listener mode [Bytes] -- 256
+REM NFCC_Config -- Max. RX frame accepted in Poller mode [Bytes] -- 256
+REM NFCC_Config -- Max. TX frame size sent in Poller mode [Bytes] -- 256
+REM NFCC_Config -- DH-SE is allowed to create pipes toward Reader RF gates -- YES
+REM NFCC_Config -- DH-SE is allowed to create pipes toward Card RF gates -- YES
+REM NFCC_Config -- Allows the use of Type A with the DH-SE if initialized -- YES
+REM NFCC_Config -- Allows the use of Type B with the DH-SE if initialized -- YES
+REM NFCC_Config -- Allows the use of Type F with the DH-SE if initialized -- YES
+
+REM IoT_Config -- Xi'An transportation cards support   (line 10 is Chinese ID card support duplicated from line 11 to 15) -- ON
+REM IoT_Config -- Singapour NETS Flashpay cards support -- ON
+REM IoT_Config -- Beijing transportation cards support -- ON
+REM IoT_Config -- Wuxi Taihu transportation cards support -- ON
+REM IoT_Config -- Force FSDI in ATTRIB command to 0x08 in case of Type B -- ON
+REM IoT_Config -- PACM_BIT_RATE alternation mode -- OFF
+REM IoT_Config -- Force RLS_REQ sending on RF_Deactivate_Cmd (Idle) in ACM  -- OFF
+REM IoT_Config -- ACM Response Collision Avoidance is retried up to 5 times -- OFF
+REM IoT_Config -- Reduced Field Detection latency in active state -- ON
+REM IoT_Config -- REQ answer latency optimization (value from line 20 = Lingnan Tong Transit app) -- OFF
+REM IoT_Config -- Shenzen transit application support (value from line 20) -- OFF
+REM IoT_Config -- Decrease constraints for ISO14443 error handling  -- OFF
+REM IoT_Config -- Nb of ACT_POWER_MODE sent before activation considered failed (0 = NFCC decides) -- 0
+REM IoT_Config -- Nb of SWP line activation tentative before HCI-NFCEE considered as unresponsive (0 = NFCC decides) -- 0
+REM IoT_Config -- Reconfiguration in a loop -- ON
+REM IoT_Config -- Reconfiguration in a loop -- ON
+REM IoT_Config -- Reconfiguration in a loop -- ON
+
+REM UICC-SE_Config -- Close CLT session if SHDLC is received from SWP_SE -- No
+REM UICC-SE_Config -- Close CLT session if SHDLC is received from SWP_UICC1 -- No
+REM UICC-SE_Config -- Close CLT session if SHDLC is received from SWP_UICC2 -- No
+
+REM Antenna_Config -- Tag Detector Gain -- -18
+REM Antenna_Config -- Tag Detector Pulses VDD_RF Voltage [V] -- 2.3
+REM Antenna_Config -- Tag Detector I Sensitivity [Dec] -- 19
+REM Antenna_Config -- Tag Detector Collision Avoidance Sensitivity -- 18
+REM Antenna_Config -- Enable Waveshapping (LDOASK) -- ON
+
+REM Logging_Config -- RF and SWP spy -- Enable
+REM Logging_Config -- Log Notification sent when: -- Regular interval
+REM Logging_Config -- Notification interval  (if Log Notification is set on "regular interval") [ms] -- 10
+REM Logging_Config -- Timestamp enable -- Enable
+REM Logging_Config -- Timestamp update during sleep mode -- Enable
+REM Logging_Config -- Log RF 1st Frame detection in CE mode -- Enable
+REM Logging_Config -- Log RF packets -- Enable
+REM Logging_Config -- Log some RF parameters -- Enable
+REM Logging_Config -- Log RF Listen transparent type A packets -- Disable
+REM Logging_Config -- Log NFCC own RF field on/off -- Enable
+REM Logging_Config -- Log NFCC RF field sensing on/off -- Enable
+REM Logging_Config -- Log NFCC LPTD information -- Enable
+REM Logging_Config -- Log remote RF field on/off -- Enable
+REM Logging_Config -- Log additional detailed RF error (from ACM) -- Enable
+REM Logging_Config -- Log SWP ACTivation packets -- Enable
+REM Logging_Config -- Log SWP SHDLC control packets -- Enable
+REM Logging_Config -- Log SWP SHDLC I-frames -- Enable
+REM Logging_Config -- Log SWP SHDLC I-frames resend -- Enable
+REM Logging_Config -- Log VCC power supply events -- Enable
+REM Logging_Config -- Log SWP line activation events -- Enable
+REM Logging_Config -- Log SWP frames received with error or unexpected -- Enable
+REM Logging_Config -- UWB ranging round report -- Enable
+REM Logging_Config -- Log CCC -- Enable
+REM Logging_Config -- Log power management: going to sleep or waking up -- Disable
+REM Logging_Config -- Log system related events -- Enable
+REM Logging_Config -- Log ERROR indication -- Enable
+REM Logging_Config -- Log WARNING indication -- Enable
+REM Logging_Config -- Log INFO indication -- Disable
+REM Logging_Config -- Log inter-process signals (Send) -- Disable
+REM Logging_Config -- Log inter-process signals (Receive) -- Disable
+REM Logging_Config -- Log module RFP -- Disable
+REM Logging_Config -- Log module RFA -- Disable
+REM Logging_Config -- Log module RF (basic) -- Disable
+REM Logging_Config -- Log module RF (Poll data events) -- Disable
+REM Logging_Config -- Log module RF (ACM details) -- Disable
+REM Logging_Config -- Log module RF (TagDet details) -- Disable
+REM Logging_Config -- Log module (IRQ status) -- Disable
+REM Logging_Config -- Log module RF (verbose details) -- Disable
+REM Logging_Config -- Log module SPP -- Disable
+REM Logging_Config -- Log module HCT -- Disable
+REM Logging_Config -- Log module SHD -- Disable
+REM Logging_Config -- Log module SWM -- Disable
+REM Logging_Config -- Log module IPT -- Disable
+REM Logging_Config -- Log module SWP -- Disable
+REM Logging_Config -- Log module IPC -- Disable
+REM Logging_Config -- Log module NMP -- Disable
+REM Logging_Config -- Log module DSC -- Disable
+REM Logging_Config -- Log module NCC -- Disable
+REM Logging_Config -- Log module HCC -- Disable
+REM Logging_Config -- Log module RTR -- Disable
+REM Logging_Config -- Log module DHP -- Disable
+REM Logging_Config -- Log module NCT -- Disable
+REM Logging_Config -- Log module I2C -- Disable
+REM Logging_Config -- Log module UWP -- Disable
+REM Logging_Config -- Log module AES -- Disable
+REM Logging_Config -- Log Measurements (with ADC, debug only) -- Disable
+REM Logging_Config -- Log Intrusive Measurement (with TDET, prevents SLEEP) -- Disable
+REM Logging_Config -- Log RF algorrithm information (TDET, DPC, FOD) -- Disable
+
+REM TEST_Config -- Sleep (switched on) -- OFF
+REM TEST_Config -- Hibernate (switched ON) -- ON
+REM TEST_Config -- Poller A -- ON
+REM TEST_Config -- Poller ThinFilm (Kovio) -- ON
+REM TEST_Config -- Active P2P -- ON
+REM TEST_Config -- Poller B -- ON
+REM TEST_Config -- Poller F -- ON
+REM TEST_Config -- Poller V -- ON
+REM TEST_Config -- RF Poll Mode -- ON
+REM TEST_Config -- RF LDO calibration -- ON
+REM TEST_Config -- VDDRF for RW [V] -- 2.3
+REM TEST_Config -- NFC Forum Version -- v.2.0
+REM TEST_Config -- EMVCo Version -- v.2.6
+REM TEST_Config -- Notify tag detection to DH  -- OFF
+REM TEST_Config -- Notify false tag detection to DH -- OFF
+REM TEST_Config -- CE Dynamic RF register management -- ON
+REM TEST_Config -- ALM Dynamic Configuration -- ON
+REM TEST_Config -- ST54L_SE can go to standby during communication with ST54L_CLF   -- YES
+REM TEST_Config -- Internal SWP baudrate -- 3.4 Mbps
+
+REM IO_CONFIGURATION -- Driver Mode -- Differential Mode
+REM IO_CONFIGURATION -- Driver idle mode -- High mode
+REM IO_CONFIGURATION -- RFI DC termination type -- Differential termination
+REM IO_CONFIGURATION -- RFI DC point -- DC defined to 1.2V
+REM IO_CONFIGURATION -- Enable internal DC point definition -- Enable
+REM IO_CONFIGURATION -- Enable RFI Clamp during CE Tx -- Enable
+REM IO_CONFIGURATION -- ADC_SEL_CLK_CE -- ALM
+REM IO_CONFIGURATION -- ACD_SEL_CLK_TD -- PLL
+REM IO_CONFIGURATION -- ADC_SEL_CLK_RW -- PLL
+REM IO_CONFIGURATION -- Tx_SEL_CLK_RW -- PLL
+REM IO_CONFIGURATION -- Enable 90° clock shift for DCDC -- Disable
+
+REM Damping Options -- Enable the TX Damp -- Enable
+REM Damping Options -- Enable the AUX Damp -- Enable
+REM Damping Options -- Enable the RX Damp -- Enable
+REM Damping Options -- Enable External Switch in RW mode -- Disable
+REM Damping Options -- Enable External Switch in TagDet mode -- Disable
+REM Damping Options -- Enable External Switch in CE & EFD mode -- Disable
+REM Damping Options -- Enable Damping in OOFS -- Disable
+REM Damping Options -- Enable Damping in Manchester Code (AND & XOR) -- Disable
+REM Damping Options -- RFO1 TX Damp shift  -- Enable
+REM Damping Options -- RFO2 TX Damp shift -- Disable
+REM Damping Options -- CDMP1 Damp shift -- Enable
+REM Damping Options -- CDMP2 Damp shift -- Disable
+
+REM CE-Config -- Tx signals output sync -- Rising Edge
+REM CE-Config -- Enable TX Decay in Manchester XOR -- Disable
+REM CE-Config -- Last Man_XOR Modulation duration -- 9
+REM CE-Config -- Load Modulation Type -- ALM
+REM CE-Config -- Tx Damping Synchronisation -- No delay
+REM CE-Config -- PLL Lock time in BPSK AND -- No Reduction
+REM CE-Config -- FDT Reduction for 212 kbits/s -- -0
+REM CE-Config -- FDT Reduction for 424 kbits/s -- -0
+REM CE-Config -- FDT Reduction for 848 kbits/s -- -0
+REM CE-Config -- FIELD OFF - RSSI absolute threshold -- 1300
+REM CE-Config -- FIELD OFF - relative threshold -- 24
+REM CE-Config -- Time to detect a Field OFF (clk/4) -- 55
+REM CE-Config -- Disable CE decoder when Field OFF -- Disable
+REM CE-Config -- Disable DataOut when Field OFF -- Disable

@@ -1,0 +1,73 @@
+<!-- SPEARHEAD IPA configuration
+     Copyright (c) 2021-2023 Qualcomm Technologies, Inc.
+     All Rights Reserved.
+     Confidential and Proprietary - Qualcomm Technologies, Inc. -->
+
+<!-- 'sampling_duration' is in milliseconds
+     This is for the full module
+
+     We expect the duration to be in multiples of 250 ms -->
+
+<!-- 'polling_mode' is in milliseconds
+         0x0 - One-Shot
+         0x1 - Interval Driven -->
+
+<!-- 'sampling_interval' is in milliseconds and is defined per bucket
+     The value in sampling interval is fixed and in multiples of 250 ms.
+     It cannot exceed the duration
+
+     Sampling durations : Ex. if duration is 1000 ms,
+     intervals can be 250 ms, 500 ms or 1000 ms
+
+     The sampling interval of all buckets must add up to 1000 ms -->
+
+<!-- 'logging_endpoint' is a bitmask indicating the logging endpoint for the stat
+         0x0 - default to diag
+         0x1 - additionally, send to QMI
+         0x2 - additionally, send to file -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<list name="sprhd_ipa_cfg">
+  <data name="sampling_duration" type="int"> 5000 </data>
+  <data name="polling_mode" type="int"> 0 </data>
+
+  <list name="IPA generic stats">
+    <data name="stat_bucket" type="string"> generic_stats </data>
+    <data name="sampling_interval" type="int"> 5000 </data>
+  </list>
+
+  <list name="IPA Clock stats">
+    <data name="stat_bucket" type="string"> ipa_clock_stats </data>
+    <data name="sampling_interval" type="int"> 5000 </data>
+  </list>
+
+  <!-- IPA Pipe info and GSI info is common for WLAN, ETH, MHIP and USB
+       If the GSI and pipe info fields are updated, all the below sections
+       need to be updated together -->
+
+  <list name="IPA WLAN stats">
+    <data name="stat_bucket" type="string"> ipa_wlan_stats </data>
+    <data name="sampling_interval" type="int"> 5000 </data>
+  </list>
+
+  <list name="IPA ETH stats">
+    <data name="stat_bucket" type="string"> ipa_eth_stats </data>
+    <data name="sampling_interval" type="int"> 5000 </data>
+  </list>
+
+  <list name="IPA USB stats">
+    <data name="stat_bucket" type="string"> ipa_usb_stats </data>
+    <data name="sampling_interval" type="int"> 5000 </data>
+  </list>
+
+  <list name="IPA MHIP stats">
+    <data name="stat_bucket" type="string"> ipa_mhip_stats </data>
+    <data name="sampling_interval" type="int"> 5000 </data>
+  </list>
+
+  <list name="IPA Recycle stats">
+    <data name="stat_bucket" type="string"> ipa_recycle_stats </data>
+    <data name="sampling_interval" type="int"> 5000 </data>
+  </list>
+</list>

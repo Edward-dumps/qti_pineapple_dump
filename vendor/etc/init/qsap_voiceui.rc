@@ -1,0 +1,10 @@
+# Copyright (c) 2022 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+service vendor.qsap.voiceui vendor/bin/qsap_voiceui
+   class main
+   user media
+   group media
+   socket vuidmgr stream 0660 media media
+

@@ -1,0 +1,45 @@
+// @file sns_elevator_detection.proto
+//
+// Defines message types for the Elevator Detection (ED) Sensor.
+//
+// Copyright (c) 2021 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+syntax = "proto2";
+import "nanopb.proto";
+import "sns_std_sensor.proto";
+
+// Elevator Detection Sensor Attribute Requirements:
+// SNS_STD_SENSOR_ATTRID_TYPE: "elevator_detection"
+// SNS_STD_SENSOR_ATTRID_STREAM_TYPE: SNS_STD_SENSOR_STREAM_TYPE_ON_CHANGE
+
+// Stream Requests:
+// - SNS_STD_SENSOR_MSGID_SNS_STD_ON_CHANGE_CONFIG is used to enable the sensor
+
+// Message IDs for Elevator Detection Sensor
+enum sns_elevator_detection_msgid {
+  option (nanopb_enumopt).long_names = false;
+
+  // The sns_ed_event message is used to publish updated state.  A new event
+  // will be generated upon any state change.
+  SNS_ELEVATOR_DETECTION_MSGID_SNS_ED_EVENT = 802;
+}
+
+// elevator detection states
+enum sns_ed_state
+{
+  option (nanopb_enumopt).long_names = false;
+
+  // Elevator entry is detected
+  SNS_ED_ENTRY = 1;
+  // Elevator exit is detected
+  SNS_ED_EXIT = 2;
+}
+
+
+message sns_ed_event
+{
+  // elevator state
+  required sns_ed_state state = 1 ;
+}

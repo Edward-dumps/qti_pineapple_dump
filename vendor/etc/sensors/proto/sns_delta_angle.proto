@@ -1,0 +1,82 @@
+// @file sns_delta_angle.proto
+//
+// Defines message types for the Delta Angle sensor.
+//
+// Copyright (c) 2021-2022 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+syntax = "proto2";
+import "nanopb.proto";
+import "sns_std_sensor.proto";
+
+// Delta Angle calculates the angle from an anchor position. When the
+// angle changes by more than the specified threshold, an event is sent and the
+// anchor is reset.
+// Internal sample rate of the Delta Angle sensor is pre-configured in the registry.
+
+// Delta Angle Sensor Attribute Requirements:
+// SNS_STD_SENSOR_ATTRID_TYPE: "delta_angle"
+// SNS_STD_SENSOR_ATTRID_STREAM_TYPE: SNS_STD_SENSOR_STREAM_TYPE_ON_CHANGE
+
+// Stream Requests:
+// - SNS_DELTA_ANGLE_MSGID_SNS_DELTA_ANGLE_CONFIG is used to enable the sensor
+
+// Message IDs for Delta Angle Sensor
+enum sns_delta_angle_msgid {
+  option (nanopb_enumopt).long_names = false;
+  SNS_DELTA_ANGLE_MSGID_SNS_DELTA_ANGLE_CONFIG = 520;
+  SNS_DELTA_ANGLE_MSGID_SNS_DELTA_ANGLE_EVENT = 772;
+}
+
+// The orientation type defines which orientation of rotation the client is interested in
+enum sns_delta_angle_ori_type {
+  option (nanopb_enumopt).long_names = false;
+  SNS_DELTA_ANGLE_ORIENTATION_PITCH   = 1;
+  SNS_DELTA_ANGLE_ORIENTATION_ROLL    = 2;
+  SNS_DELTA_ANGLE_ORIENTATION_HEADING = 3;
+  SNS_DELTA_ANGLE_ORIENTATION_TOTAL   = 4;
+}
+
+message sns_delta_angle_quat_history {
+  // Timestamp of the historical quaternion
+  required uint64 quat_ts = 1;
+  // An array of x/y/z/w
+  repeated float  quat       = 2 [(nanopb).max_count = 4 ];
+}
+
+// Configuration message for delta angle.
+message sns_delta_angle_config {
+  // The orientation type defines which orientation of rotation the client is interested in
+  required sns_delta_angle_ori_type ori_type = 1;
+
+  // Absolute angle threshold for reporting events.
+  required float radians = 2;
+
+  // Will be used as batch_period in request to underlying physical sensor requests.
+  // Note that it will not change the underlying sampling rate of the physical sensors.
+  required uint32 latency_us = 3;
+
+  // Optionally enable reporting the quaternion which caused the angle threshold to be met.
+  optional bool quat_output_enable = 4;
+
+  // Optionally enable reporting two historical quaternions from prior to the angle
+  // threshold being met.
+  optional bool quat_history_enable = 5;
+}
+
+// Event sent when the angle change threshold has been met
+message sns_delta_angle_event {
+  // Quaternion output. Optionally enabled by the "quat_output_enable" field in the request
+  // An array of x/y/z/w
+  repeated float quat = 1 [(nanopb).max_count = 4 ];
+
+  // The output event can optionally contain 2 historical quaternions from prior to
+  // the angle change being satisfied. This can be used (for example) to compute
+  // the device trajectory at the time the angle threshold is reached.
+  // Optionally enabled by the "quat_history_enable" field in the request
+  repeated sns_delta_angle_quat_history history = 2 [(nanopb).max_count = 2];
+
+  // Initial quaternion. Only updated when it changes
+  repeated float init_quat = 3 [(nanopb).max_count = 4 ];
+}

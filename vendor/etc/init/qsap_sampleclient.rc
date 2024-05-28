@@ -1,0 +1,14 @@
+#=====================================================================
+# qsap_sampleclient.rc
+#
+# Copyright (c) 2022 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#==============================================================================
+
+service vendor.qsap.sampleclient /vendor/bin/qsap_sampleclient
+    class main
+    user system
+    group system
+    disabled
+    oneshot

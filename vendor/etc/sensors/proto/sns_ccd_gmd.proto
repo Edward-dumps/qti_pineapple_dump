@@ -1,0 +1,28 @@
+// @file sns_ccd_gmd.proto
+//
+// Defines the API for the CCD 5.0 Gyro Motion Detector
+//
+// Copyright (c) 2021 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+syntax = "proto2";
+import "nanopb.proto";
+import "sns_std_sensor.proto";
+import "sns_amd.proto";
+
+// GMD uses the gyro sensor to detect motion/stationary states
+// This sensor is for debug use only. It is use for testing and
+// validating the values in the GBE hardware. Normally, these
+// values are only used within the CCD, and should not be used
+// by external clients.
+
+// GBE Sensor Attribute Requirements:
+// SNS_STD_SENSOR_ATTRID_TYPE: "ccd_gmd"
+// SNS_STD_SENSOR_ATTRID_STREAM_TYPE: SNS_STD_SENSOR_STREAM_TYPE_ON_CHANGE
+
+// Stream Requests:
+// - SNS_STD_SENSOR_MSGID_SNS_STD_ON_CHANGE_CONFIG is used to enable the sensor
+
+// Stream events:
+// - SNS_AMD_MSGID_SNS_AMD_EVENT is used to send motion/stationary updates
